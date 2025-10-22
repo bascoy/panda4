@@ -1,0 +1,30 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
+
+@use '../abstract' as *;
+
+@each $breakpoint in map.keys($p4-breakpoint-utilitys) {
+  $break: if(
+    $breakpoint == list.nth(map.keys($p4-breakpoint-utilitys), 1),
+    '',
+    '#{$breakpoint}'
+  );
+  $breakpoint-value: map.get($p4-breakpoint-utilitys, $breakpoint);
+
+  @if $break != '' {
+    @include mq($min-screen: $breakpoint-value) {
+      @each $key, $utility in $p4-utilitys {
+        @if meta.type-of($utility) == 'map' and (map.get($utility, responsive)) {
+          @include generate-utility($utility, $break);
+        }
+      }
+    }
+  } @else {
+    @each $key, $utility in $p4-utilitys {
+      @if meta.type-of($utility) == 'map' {
+        @include generate-utility($utility);
+      }
+    }
+  }
+}

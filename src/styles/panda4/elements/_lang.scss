@@ -1,0 +1,48 @@
+// aleman
+[lang^="de"],
+// chino
+[lang^="zh"],
+[lang^="zo"],
+// euskera
+[lang^="eu"],
+// griego
+[lang^="el"],
+// turco
+[lang^="tr"],
+// ruso
+[lang^="ru"],
+// serbio
+[lang^="sr"],
+// ukraniano
+[lang^="uk"],
+// bulgaro
+[lang^="bg"],
+// arab emirates, egipto ,jordania, israel ,qatar , bahrain ,arabia saudi
+[lang^="ar"],
+[lang^="nl"] {
+  --p4-text-uppercase: none !important;
+}
+
+// chino
+[lang^="zh"],
+// chino
+[lang^="zn"],
+// coreano ko-KR
+[lang^="ko"],
+[lang^="vi"],
+[lang^="el"],
+// griego
+// turco
+[lang^="tr"],
+// ruso
+[lang^="ru"],
+// serbio
+[lang^="sr"],
+// ukraniano
+[lang^="uk"],
+// bulgaro
+[lang^="bg"],
+// arab emirates, egipto ,jordania, israel ,qatar , bahrain ,arabia saudi
+[lang^="ar"] { 
+  --p4-font-family-base: Helvetica, Arial, sans-serif !important;
+}

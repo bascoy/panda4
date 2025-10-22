@@ -1,0 +1,19 @@
+// Core colors in RGB source channels
+$p4-color-src-white: (255, 255, 255) !default;
+$p4-color-src-black: (0, 0, 0) !default;
+$p4-color-src-neutral: (128, 128, 128) !default;
+$p4-color-src-red: (237, 15, 43) !default;
+$p4-color-src-orange: (229, 116, 11) !default;
+$p4-color-src-green: (18, 136, 44) !default;
+$p4-color-src-blue: (26, 50, 164) !default;
+$p4-color-src-yellow: (255, 206, 78) !default;
+
+// Core colors in RGB format
+$p4-color-white: rgb($p4-color-src-white...)!default;
+$p4-color-black: rgb($p4-color-src-black...)!default;
+$p4-color-neutral: rgb($p4-color-src-neutral...)!default;
+$p4-color-red: rgb($p4-color-src-red...)!default;
+$p4-color-orange: rgb($p4-color-src-orange...)!default;
+$p4-color-green: rgb($p4-color-src-green...)!default;
+$p4-color-blue: rgb($p4-color-src-blue...)!default;
+$p4-color-yellow: rgb($p4-color-src-yellow...)!default;

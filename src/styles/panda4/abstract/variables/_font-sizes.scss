@@ -1,0 +1,11 @@
+@use '../functions' as *;
+
+$text-s: (
+  size: to-rem(14),
+  line-height: 1.6
+) !default;
+
+$text-m: (
+  size: to-rem(16),
+  line-height: 1.5
+) !default;
