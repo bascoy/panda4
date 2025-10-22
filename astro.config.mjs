@@ -1,5 +1,10 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import vercel from '@astrojs/vercel/static';
 
 // https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  output: 'static',
+  adapter: vercel(),
+  site: 'https://panda4.vercel.app',
+});
