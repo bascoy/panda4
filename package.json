@@ -21,6 +21,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "compile-css": "sass ./src/styles/pand4/pand4.scss ./src/styles/pand4/pand4.css",
+    "compile-docs": "sass ./src/styles/docs.scss ./src/styles/docs.css",
+    "compile-all": "npm run compile-css && npm run compile-docs",
     "prepublishOnly": "npm run compile-css"
   },
   "keywords": [

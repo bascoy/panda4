@@ -36,7 +36,7 @@
     );
     $property-class-modifier: if($key, '-' + $key, '');
     $breakpoint-class: if($breakpoint, $breakpoint + '\\:', '');
-    $generated-property: '.' + $breakpoint-class + $property-class + $property-class-modifier;
+    $generated-property: '.p4-' + $breakpoint-class + $property-class + $property-class-modifier;
 
     @if $value {
       #{$generated-property} {

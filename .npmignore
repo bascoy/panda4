@@ -5,6 +5,11 @@ src/components/
 astro.config.mjs
 tsconfig.json
 
+# Documentation styles (only for demo site)
+src/styles/docs.scss
+src/styles/docs.css
+src/styles/docs.css.map
+
 # Vercel specific files
 .vercel/
 vercel.json

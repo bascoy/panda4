@@ -1,0 +1,430 @@
+// ====================================
+// DOCS.SCSS - Estilos para la documentación del sitio web
+// ====================================
+// Este archivo NO se incluye en el paquete NPM
+// Solo se usa para la demo/documentación en https://pand4.vercel.app
+
+// Importar el framework Pand4 completo
+@use './pand4/pand4' as *;
+
+// ====================================
+// VARIABLES ESPECÍFICAS PARA DOCS
+// ====================================
+
+:root {
+  // Colores específicos de la documentación
+  --docs-primary: #2563eb;
+  --docs-secondary: #64748b;
+  --docs-accent: #f59e0b;
+  --docs-success: #10b981;
+  --docs-warning: #f59e0b;
+  --docs-error: #ef4444;
+  
+  // Colores de fondo
+  --docs-bg-primary: #ffffff;
+  --docs-bg-secondary: #f8fafc;
+  --docs-bg-code: #f1f5f9;
+  --docs-bg-sidebar: #1e293b;
+  
+  // Colores de texto
+  --docs-text-primary: #1e293b;
+  --docs-text-secondary: #64748b;
+  --docs-text-muted: #94a3b8;
+  --docs-text-inverse: #ffffff;
+  
+  // Bordes y sombras
+  --docs-border: #e2e8f0;
+  --docs-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  --docs-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+// ====================================
+// ESTILOS BASE PARA LA DOCUMENTACIÓN
+// ====================================
+
+.docs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+// ====================================
+// HEADER Y NAVEGACIÓN
+// ====================================
+
+.docs-header {
+  background: var(--docs-bg-primary);
+  border-bottom: 1px solid var(--docs-border);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  
+  .docs-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    .docs-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--docs-primary);
+      text-decoration: none;
+      
+      &:hover {
+        color: var(--docs-accent);
+      }
+    }
+    
+    .docs-nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      
+      a {
+        color: var(--docs-text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s ease;
+        
+        &:hover,
+        &.active {
+          color: var(--docs-primary);
+        }
+      }
+    }
+  }
+}
+
+// ====================================
+// CONTENIDO PRINCIPAL
+// ====================================
+
+.docs-main {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 2rem;
+  padding: 2rem 0;
+  min-height: calc(100vh - 80px);
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+// ====================================
+// SIDEBAR
+// ====================================
+
+.docs-sidebar {
+  background: var(--docs-bg-sidebar);
+  padding: 1.5rem;
+  border-radius: 8px;
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+  
+  @media (max-width: 768px) {
+    position: static;
+    background: var(--docs-bg-secondary);
+  }
+  
+  .docs-sidebar-title {
+    color: var(--docs-text-inverse);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    
+    @media (max-width: 768px) {
+      color: var(--docs-text-primary);
+    }
+  }
+  
+  .docs-sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    li {
+      margin-bottom: 0.5rem;
+      
+      a {
+        color: var(--docs-text-muted);
+        text-decoration: none;
+        padding: 0.5rem 0.75rem;
+        border-radius: 4px;
+        display: block;
+        transition: all 0.2s ease;
+        
+        @media (max-width: 768px) {
+          color: var(--docs-text-secondary);
+        }
+        
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+          color: var(--docs-text-inverse);
+          
+          @media (max-width: 768px) {
+            background: var(--docs-bg-code);
+            color: var(--docs-text-primary);
+          }
+        }
+        
+        &.active {
+          background: var(--docs-primary);
+          color: var(--docs-text-inverse);
+        }
+      }
+    }
+  }
+}
+
+// ====================================
+// CONTENIDO DE DOCUMENTACIÓN
+// ====================================
+
+.docs-content {
+  background: var(--docs-bg-primary);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--docs-shadow);
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--docs-text-primary);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    border-bottom: 2px solid var(--docs-border);
+    padding-bottom: 0.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: var(--docs-primary);
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+  
+  p {
+    color: var(--docs-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  
+  a {
+    color: var(--docs-primary);
+    text-decoration: underline;
+    
+    &:hover {
+      color: var(--docs-accent);
+    }
+  }
+}
+
+// ====================================
+// BLOQUES DE CÓDIGO
+// ====================================
+
+.docs-code-block {
+  background: var(--docs-bg-code);
+  border: 1px solid var(--docs-border);
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 1rem 0;
+  overflow-x: auto;
+  
+  pre {
+    margin: 0;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  
+  code {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    font-size: inherit;
+  }
+}
+
+code {
+  background: var(--docs-bg-code);
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  color: var(--docs-text-primary);
+}
+
+// ====================================
+// COMPONENTES DE DEMO
+// ====================================
+
+.docs-demo {
+  border: 1px solid var(--docs-border);
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  overflow: hidden;
+  
+  .docs-demo-preview {
+    padding: 2rem;
+    background: var(--docs-bg-secondary);
+    border-bottom: 1px solid var(--docs-border);
+  }
+  
+  .docs-demo-code {
+    background: var(--docs-bg-code);
+    padding: 1rem;
+    
+    pre {
+      margin: 0;
+      font-size: 0.875rem;
+    }
+  }
+}
+
+// ====================================
+// BADGES Y ETIQUETAS
+// ====================================
+
+.docs-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  
+  &--primary {
+    background: var(--docs-primary);
+    color: var(--docs-text-inverse);
+  }
+  
+  &--success {
+    background: var(--docs-success);
+    color: var(--docs-text-inverse);
+  }
+  
+  &--warning {
+    background: var(--docs-warning);
+    color: var(--docs-text-inverse);
+  }
+  
+  &--secondary {
+    background: var(--docs-bg-code);
+    color: var(--docs-text-secondary);
+  }
+}
+
+// ====================================
+// ALERTAS Y CALLOUTS
+// ====================================
+
+.docs-alert {
+  padding: 1rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+  border-left: 4px solid;
+  
+  &--info {
+    background: #eff6ff;
+    border-color: var(--docs-primary);
+    color: #1e40af;
+  }
+  
+  &--success {
+    background: #f0fdf4;
+    border-color: var(--docs-success);
+    color: #166534;
+  }
+  
+  &--warning {
+    background: #fffbeb;
+    border-color: var(--docs-warning);
+    color: #92400e;
+  }
+  
+  &--error {
+    background: #fef2f2;
+    border-color: var(--docs-error);
+    color: #991b1b;
+  }
+}
+
+// ====================================
+// FOOTER
+// ====================================
+
+.docs-footer {
+  background: var(--docs-bg-sidebar);
+  color: var(--docs-text-inverse);
+  padding: 2rem 0;
+  margin-top: 4rem;
+  text-align: center;
+  
+  p {
+    margin: 0;
+    color: var(--docs-text-muted);
+  }
+  
+  a {
+    color: var(--docs-text-inverse);
+    text-decoration: none;
+    
+    &:hover {
+      color: var(--docs-accent);
+    }
+  }
+}
+
+// ====================================
+// UTILIDADES ESPECÍFICAS PARA DOCS
+// ====================================
+
+.docs-hidden {
+  display: none !important;
+}
+
+.docs-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.docs-text-center {
+  text-align: center !important;
+}
+
+.docs-text-right {
+  text-align: right !important;
+}
+
+.docs-mb-0 { margin-bottom: 0 !important; }
+.docs-mb-1 { margin-bottom: 0.25rem !important; }
+.docs-mb-2 { margin-bottom: 0.5rem !important; }
+.docs-mb-3 { margin-bottom: 0.75rem !important; }
+.docs-mb-4 { margin-bottom: 1rem !important; }
+
+.docs-mt-0 { margin-top: 0 !important; }
+.docs-mt-1 { margin-top: 0.25rem !important; }
+.docs-mt-2 { margin-top: 0.5rem !important; }
+.docs-mt-3 { margin-top: 0.75rem !important; }
+.docs-mt-4 { margin-top: 1rem !important; }

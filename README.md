@@ -1,5 +1,16 @@
-# Pand4 Framework
+# Pand4 Fr## 📖 Uso
 
+> **Nota**: Para **SCSS/Sass moderno** se recomienda usar `@use` en lugar de `@import`. Los ejemplos muestran ambos métodos. Para CSS puro, usa los métodos mostrados en la sección "Usar CSS compilado".
+
+### Importar el framework completo en SCSS
+
+```scss
+// Método moderno recomendado (Sass/SCSS)
+@use 'pand4' as *;
+
+// O con namespace específico
+@use 'pand4';
+```
 Un framework CSS moderno, modular y responsive construido con SCSS.
 
 ## 🚀 Instalación
@@ -17,30 +28,39 @@ npm install pand4
 @import 'pand4';
 ```
 
-### Importar módulos específicos
+### Importar módulos específicos en SCSS
 
 ```scss
-// Solo variables
-@import 'pand4/variables';
+// Todo el abstract (variables, mixins, funciones)
+@use 'pand4/abstract' as *;
 
-// Solo mixins
-@import 'pand4/mixins';
+// O con namespace para evitar conflictos
+@use 'pand4/abstract' as pand4;
 
-// Solo utilidades
-@import 'pand4/utilities';
+// Acceder directamente a la estructura completa
+@use 'pand4/scss' as *;
 ```
 
 ### Usar CSS compilado
 
+#### En HTML:
 ```html
-<!-- En tu HTML -->
 <link rel="stylesheet" href="node_modules/pand4/src/styles/pand4/pand4.css">
 ```
 
-O importarlo en tu JavaScript/CSS:
+#### En JavaScript/Bundlers (Vite, Webpack, etc.):
+```javascript
+// Recomendado: Import en JS
+import 'pand4/css';
 
-```css
-@import 'pand4/css';
+// O con ruta específica
+import 'pand4/src/styles/pand4/pand4.css';
+```
+
+#### En frameworks CSS-in-JS:
+```javascript
+// Next.js, Gatsby, etc.
+import 'pand4/css';
 ```
 
 ## 🎨 Características
@@ -57,7 +77,7 @@ O importarlo en tu JavaScript/CSS:
 ```
 pand4/
 ├── abstract/
-│   ├── variables/        # Variables de colores, tipografías, espaciados
+│   ├── variables/       # Variables de colores, tipografías, espaciados
 │   ├── _mixins.scss     # Mixins reutilizables
 │   └── _functions.scss  # Funciones SCSS
 ├── generic/
@@ -68,8 +88,8 @@ pand4/
 │   └── _body.scss       # Estilos base body
 └── utilities/
     ├── _utilities.scss  # Clases utilitarias
-    ├── _rtl.scss       # Soporte RTL
-    └── _sr-only.scss   # Utilidades de accesibilidad
+    ├── _rtl.scss        # Soporte RTL
+    └── _sr-only.scss    # Utilidades de accesibilidad
 ```
 
 ## 🎯 Variables Disponibles
@@ -93,21 +113,47 @@ pand4/
 - Breakpoints responsive predefinidos
 - Mobile-first approach
 
-## 🔧 Personalización
+## 🔧 Personalización con SCSS
 
 ```scss
-// Sobrescribir variables antes de importar
+// Método moderno con @use y configuración
+@use 'pand4' as * with (
+  $primary-color: #your-color,
+  $font-family-base: 'Your Font', sans-serif
+);
+
+// O método tradicional (menos recomendado)
 $primary-color: #your-color;
 $font-family-base: 'Your Font', sans-serif;
-
-@import 'pand4';
+@use 'pand4' as *;
 ```
+
+### 🆚 **@use vs @import en SCSS**
+
+| Característica | `@use` (Recomendado) | `@import` (Legado) |
+|----------------|---------------------|-------------------|
+| **Namespace** | ✅ Automático | ❌ Global |
+| **Conflictos** | ✅ Evita conflictos | ❌ Puede generar conflictos |
+| **Performance** | ✅ Carga una vez | ❌ Carga múltiple |
+| **Configuración** | ✅ `with (...)` | ❌ Variables globales |
+| **Futuro** | ✅ Mantenido | ⚠️ Deprecado |
 
 ## 📊 Ejemplos de Uso
 
 ### Usando mixins
 
 ```scss
+// Con @use y namespace
+@use 'pand4' as p4;
+
+.mi-componente {
+  @include p4.responsive-text();
+  @include p4.center-content();
+}
+
+// Con @use sin namespace (as *)
+@use 'pand4' as *;
+
 .mi-componente {
   @include responsive-text();
   @include center-content();
@@ -117,10 +163,20 @@ $font-family-base: 'Your Font', sans-serif;
 ### Usando variables
 
 ```scss
+// Variables CSS (siempre disponibles)
 .mi-elemento {
   color: var(--color-primary);
   font-size: var(--font-size-lg);
   margin: var(--spacer-4);
+}
+
+// Variables SCSS con namespace
+@use 'pand4' as p4;
+
+.mi-elemento {
+  color: p4.$primary-color;
+  font-size: p4.$font-size-lg;
+  margin: p4.$spacer-4;
 }
 ```
 
