@@ -1,10 +1,12 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import vercel from '@astrojs/vercel/static';
+import vercel from '@astrojs/vercel/serverless';
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'static',
-  adapter: vercel(),
-  site: 'https://pand4.vercel.app', // Actualizado para reflejar el nuevo nombre
+  output: 'server',
+  adapter: vercel({
+    webAnalytics: { enabled: true }
+  }),
+  site: 'https://pand4.vercel.app',
 });
