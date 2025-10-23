@@ -6,5 +6,5 @@ import vercel from '@astrojs/vercel/static';
 export default defineConfig({
   output: 'static',
   adapter: vercel(),
-  site: 'https://panda4.vercel.app',
+  site: 'https://pand4.vercel.app', // Actualizado para reflejar el nuevo nombre
 });
