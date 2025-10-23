@@ -1,0 +1,28 @@
+# Astro specific files
+src/pages/
+src/layouts/
+src/components/
+astro.config.mjs
+tsconfig.json
+
+# Vercel specific files
+.vercel/
+vercel.json
+.env*
+
+# Build and development files
+dist/
+.astro/
+node_modules/
+.DS_Store
+
+# Development and testing
+.vscode/
+.idea/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# CI/CD
+.github/
