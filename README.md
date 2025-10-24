@@ -1,17 +1,9 @@
-# Pand4 Fr## 📖 Uso
+# Pand4 Framework
 
-> **Nota**: Para **SCSS/Sass moderno** se recomienda usar `@use` en lugar de `@import`. Los ejemplos muestran ambos métodos. Para CSS puro, usa los métodos mostrados en la sección "Usar CSS compilado".
-
-### Importar el framework completo en SCSS
-
-```scss
-// Método moderno recomendado (Sass/SCSS)
-@use 'pand4' as *;
-
-// O con namespace específico
-@use 'pand4';
-```
 Un framework CSS moderno, modular y responsive construido con SCSS.
+
+[![npm version](https://badge.fury.io/js/pand4.svg)](https://www.npmjs.com/package/pand4)
+[![npm downloads](https://img.shields.io/npm/dm/pand4.svg)](https://www.npmjs.com/package/pand4)
 
 ## 🚀 Instalación
 
@@ -24,21 +16,19 @@ npm install pand4
 ### Importar el framework completo
 
 ```scss
-// Importar todo el framework
-@import 'pand4';
+// Método moderno recomendado
+@use 'pand4' as *;
 ```
 
-### Importar módulos específicos en SCSS
+### Uso con Variables Personalizadas
 
 ```scss
-// Todo el abstract (variables, mixins, funciones)
-@use 'pand4/abstract' as *;
-
-// O con namespace para evitar conflictos
-@use 'pand4/abstract' as pand4;
-
-// Acceder directamente a la estructura completa
-@use 'pand4/scss' as *;
+// Personalizar variables al importar
+@use 'pand4' as * with (
+  $primary-color: #3b82f6,
+  $secondary-color: #64748b,
+  $base-font-size: 16px
+);
 ```
 
 ### Usar CSS compilado
@@ -50,16 +40,16 @@ npm install pand4
 
 #### En JavaScript/Bundlers (Vite, Webpack, etc.):
 ```javascript
-// Recomendado: Import en JS
+// CSS completo
 import 'pand4/css';
 
-// O con ruta específica
-import 'pand4/src/styles/pand4/pand4.css';
+// CSS minificado (recomendado para producción)
+import 'pand4/min.css';
 ```
 
-#### En frameworks CSS-in-JS:
+#### En frameworks (Next.js, Nuxt, etc.):
 ```javascript
-// Next.js, Gatsby, etc.
+// En _app.js, layout.vue, etc.
 import 'pand4/css';
 ```
 

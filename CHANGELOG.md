@@ -12,14 +12,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - NPM provenance support for enhanced security
 - Compressed CSS builds (`.min.css`) for production use
 - Manual release workflow via GitHub Actions
+- Clean script for removing generated CSS files
+- CSS linting and validation scripts
+- Watch mode for development
 
 ### Changed
-- Updated package.json with modern export maps
-- Improved build scripts with expanded and compressed outputs
-- Enhanced documentation with installation and usage examples
+- **BREAKING**: Simplified package exports to 3 essential paths only
+- Updated package.json with cleaner export structure
+- Improved build scripts with better error handling
+- Enhanced documentation with simplified usage examples
+- CSS compilation now excludes source maps for cleaner output
 
 ### Fixed
 - CSS compilation now uses expanded style for better readability
+- GitHub Actions workflows updated to use modern actions
+- Removed redundant export paths to reduce confusion
 
 ## [1.0.0] - 2025-10-23
 

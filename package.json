@@ -5,15 +5,9 @@
   "main": "./src/styles/pand4/pand4.scss",
   "type": "module",
   "exports": {
-    ".": {
-      "sass": "./src/styles/pand4/pand4.scss",
-      "style": "./src/styles/pand4/pand4.css",
-      "default": "./src/styles/pand4/pand4.scss"
-    },
-    "./scss": "./src/styles/pand4/pand4.scss",
+    ".": "./src/styles/pand4/pand4.scss",
     "./css": "./src/styles/pand4/pand4.css",
-    "./css/min": "./src/styles/pand4/pand4.min.css",
-    "./abstract": "./src/styles/pand4/abstract/_index.scss"
+    "./min.css": "./src/styles/pand4/pand4.min.css"
   },
   "files": [
     "src/styles/pand4/**/*",
@@ -34,13 +28,17 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "compile-css": "sass ./src/styles/pand4/pand4.scss ./src/styles/pand4/pand4.css --style=expanded",
+    "compile-css": "sass ./src/styles/pand4/pand4.scss ./src/styles/pand4/pand4.css --style=expanded --no-source-map",
     "compile-css:min": "sass ./src/styles/pand4/pand4.scss ./src/styles/pand4/pand4.min.css --style=compressed",
-    "compile-docs": "sass ./src/styles/docs.scss ./src/styles/docs.css --style=expanded",
+    "compile-css:watch": "sass ./src/styles/pand4/pand4.scss ./src/styles/pand4/pand4.css --style=expanded --watch",
+    "compile-docs": "sass ./src/styles/docs.scss ./src/styles/docs.css --style=expanded --no-source-map",
     "compile-all": "npm run compile-css && npm run compile-css:min && npm run compile-docs",
-    "prepublishOnly": "npm run compile-all",
+    "clean": "rm -f ./src/styles/pand4/*.css ./src/styles/pand4/*.css.map ./src/styles/*.css ./src/styles/*.css.map",
+    "lint:css": "sass ./src/styles/pand4/pand4.scss --style=expanded --no-emit --dry-run",
+    "test": "npm run lint:css",
+    "prepublishOnly": "npm run clean && npm run compile-all",
     "postpublish": "echo '🎉 Pand4 published successfully to NPM!'",
-    "version": "npm run compile-all && git add .",
+    "version": "npm run clean && npm run compile-all && git add .",
     "postversion": "git push && git push --tags"
   },
   "keywords": [

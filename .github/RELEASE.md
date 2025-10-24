@@ -26,7 +26,15 @@ Para configurar la publicación automática a NPM:
 ```bash
 # Desarrollo
 npm run dev                    # Astro dev server
+npm run compile-css:watch      # Watch mode para desarrollo
 npm run compile-all           # Compilar todos los CSS
+
+# Linting y testing
+npm run lint:css              # Validar SCSS
+npm test                      # Ejecutar tests
+
+# Limpieza
+npm run clean                 # Remover archivos CSS generados
 
 # Versioning manual
 npm version patch             # 1.0.0 → 1.0.1
