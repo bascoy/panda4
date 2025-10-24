@@ -1,0 +1,106 @@
+name: Manual Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version type to bump'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+      message:
+        description: 'Release message (optional)'
+        required: false
+        default: ''
+
+jobs:
+  manual-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+      
+      - name: Configure Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Bump version
+        id: version
+        run: |
+          NEW_VERSION=$(npm version ${{ github.event.inputs.version }} --no-git-tag-version)
+          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_OUTPUT
+          echo "New version: $NEW_VERSION"
+      
+      - name: Build for release
+        run: npm run compile-all
+      
+      - name: Commit version bump
+        run: |
+          git add .
+          if [ -n "${{ github.event.inputs.message }}" ]; then
+            git commit -m "chore: release ${{ steps.version.outputs.NEW_VERSION }} - ${{ github.event.inputs.message }}"
+          else
+            git commit -m "chore: release ${{ steps.version.outputs.NEW_VERSION }}"
+          fi
+          git tag ${{ steps.version.outputs.NEW_VERSION }}
+      
+      - name: Push changes
+        run: |
+          git push origin main
+          git push origin ${{ steps.version.outputs.NEW_VERSION }}
+      
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.version.outputs.NEW_VERSION }}
+          release_name: Release ${{ steps.version.outputs.NEW_VERSION }}
+          body: |
+            ## 🚀 Pand4 ${{ steps.version.outputs.NEW_VERSION }}
+            
+            ${{ github.event.inputs.message }}
+            
+            ### Installation
+            ```bash
+            npm install pand4@${{ steps.version.outputs.NEW_VERSION }}
+            ```
+            
+            ### Usage
+            ```scss
+            @use 'pand4' as *;
+            ```
+          draft: false
+          prerelease: false
+      
+      - name: Publish to NPM
+        run: npm publish --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Success notification
+        run: |
+          echo "🎉 Successfully released pand4@${{ steps.version.outputs.NEW_VERSION }}!"
+          echo "📦 NPM: https://www.npmjs.com/package/pand4"
+          echo "🏷️ GitHub: https://github.com/bascoy/pand4/releases/tag/${{ steps.version.outputs.NEW_VERSION }}"

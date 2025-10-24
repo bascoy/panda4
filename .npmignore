@@ -18,6 +18,24 @@ vercel.json
 # Build and development files
 dist/
 .astro/
+
+# GitHub specific files
+.github/
+.git/
+
+# Development files
+node_modules/
+npm-debug.log*
+.DS_Store
+*.local
+
+# Test files
+__tests__/
+*.test.js
+*.spec.js
+
+# Documentation (use GitHub/website instead)
+docs/
 node_modules/
 .DS_Store
 

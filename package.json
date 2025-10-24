@@ -5,25 +5,43 @@
   "main": "./src/styles/pand4/pand4.scss",
   "type": "module",
   "exports": {
-    ".": "./src/styles/pand4/pand4.scss",
+    ".": {
+      "sass": "./src/styles/pand4/pand4.scss",
+      "style": "./src/styles/pand4/pand4.css",
+      "default": "./src/styles/pand4/pand4.scss"
+    },
     "./scss": "./src/styles/pand4/pand4.scss",
     "./css": "./src/styles/pand4/pand4.css",
+    "./css/min": "./src/styles/pand4/pand4.min.css",
     "./abstract": "./src/styles/pand4/abstract/_index.scss"
   },
   "files": [
     "src/styles/pand4/**/*",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "CHANGELOG.md"
   ],
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "compile-css": "sass ./src/styles/pand4/pand4.scss ./src/styles/pand4/pand4.css",
-    "compile-docs": "sass ./src/styles/docs.scss ./src/styles/docs.css",
-    "compile-all": "npm run compile-css && npm run compile-docs",
-    "prepublishOnly": "npm run compile-css"
+    "compile-css": "sass ./src/styles/pand4/pand4.scss ./src/styles/pand4/pand4.css --style=expanded",
+    "compile-css:min": "sass ./src/styles/pand4/pand4.scss ./src/styles/pand4/pand4.min.css --style=compressed",
+    "compile-docs": "sass ./src/styles/docs.scss ./src/styles/docs.css --style=expanded",
+    "compile-all": "npm run compile-css && npm run compile-css:min && npm run compile-docs",
+    "prepublishOnly": "npm run compile-all",
+    "postpublish": "echo '🎉 Pand4 published successfully to NPM!'",
+    "version": "npm run compile-all && git add .",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [
     "css",
