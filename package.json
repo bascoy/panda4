@@ -1,6 +1,6 @@
 {
   "name": "pand4",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pand4 - A modern, modular and responsive SCSS framework",
   "main": "./src/styles/pand4/pand4.scss",
   "type": "module",
