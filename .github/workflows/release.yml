@@ -98,12 +98,12 @@ jobs:
       
       - name: Create GitHub Release
         if: steps.should_publish.outputs.should_publish == 'true'
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: v${{ steps.get_version.outputs.CURRENT_VERSION }}
-          release_name: Release v${{ steps.get_version.outputs.CURRENT_VERSION }}
+          name: Release v${{ steps.get_version.outputs.CURRENT_VERSION }}
           body: |
             ## 🚀 Pand4 v${{ steps.get_version.outputs.CURRENT_VERSION }}
             

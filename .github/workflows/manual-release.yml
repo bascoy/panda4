@@ -48,9 +48,10 @@ jobs:
       - name: Bump version
         id: version
         run: |
-          NEW_VERSION=$(npm version ${{ github.event.inputs.version }} --no-git-tag-version)
-          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_OUTPUT
-          echo "New version: $NEW_VERSION"
+          npm version ${{ github.event.inputs.version }} --no-git-tag-version
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          echo "NEW_VERSION=v$NEW_VERSION" >> $GITHUB_OUTPUT
+          echo "New version: v$NEW_VERSION"
       
       - name: Build for release
         run: npm run compile-all
@@ -71,12 +72,12 @@ jobs:
           git push origin ${{ steps.version.outputs.NEW_VERSION }}
       
       - name: Create GitHub Release
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ steps.version.outputs.NEW_VERSION }}
-          release_name: Release ${{ steps.version.outputs.NEW_VERSION }}
+          name: Release ${{ steps.version.outputs.NEW_VERSION }}
           body: |
             ## 🚀 Pand4 ${{ steps.version.outputs.NEW_VERSION }}
             
