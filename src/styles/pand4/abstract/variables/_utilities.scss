@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@use './breakpoints' as *;
+@use '../setup/breakpoints' as *;
 @use './spacers' as *;
 
 $p4-breakpoint-utilitys: (

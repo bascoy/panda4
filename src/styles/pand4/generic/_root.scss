@@ -5,7 +5,7 @@
 
 :root {
   // Font family
-  ---font-family-primary: #{$p4-font-family-primary};
+  --font-family-primary: #{$p4-font-family-primary};
 
   // Font sizes
   --p4-font-size-s: #{map.get($text-s, size)};
@@ -19,34 +19,93 @@
   --p4-text-uppercase: uppercase;
   --p4-text-normal-case: none;
 
-  // Colors
-  --p4-color-src-white: #{$p4-color-src-white};
-  --p4-color-src-black: #{$p4-color-src-black};
-  --p4-color-src-neutral: #{$p4-color-src-neutral};
-  --p4-color-src-red: #{$p4-color-src-red};
-  --p4-color-src-orange: #{$p4-color-src-orange};
-  --p4-color-src-green: #{$p4-color-src-green};
-  --p4-color-src-blue: #{$p4-color-src-blue};
-  --p4-color-src-yellow: #{$p4-color-src-yellow};
+  // Transitions
+  --p4-transition-duration-fast: #{$p4-transition-duration-fast};
+  --p4-transition-duration-medium: #{$p4-transition-duration-medium};
+  --p4-transition-duration-slow: #{$p4-transition-duration-slow};
+  --p4-transition-timing-function: #{$p4-transition-timing-function};
 
+  // Surface colors (adaptive to light/dark mode)
   @media (prefers-color-scheme: light) {
-    --p4-color-surface-0: #{color.mix($p4-color-white, $p4-color-neutral, 100%)};
-    --p4-color-surface-50: #{color.mix($p4-color-white, $p4-color-neutral, 90%)};
-    --p4-color-surface-200: #{color.mix($p4-color-white, $p4-color-neutral, 40%)};
-    --p4-color-surface-500: #{$p4-color-neutral};
-    --p4-color-surface-800: #{color.mix($p4-color-black, $p4-color-neutral, 60%)};
-    --p4-color-surface-950: #{color.mix($p4-color-black, $p4-color-neutral, 90%)};
-    --p4-color-surface-1000: #{color.mix($p4-color-black, $p4-color-neutral, 100%)};
+    --p4-color-danger-500: #{$p4-color-danger-500};
+
+    --p4-color-warning-500: #{$p4-color-warning-500};
+
+    --p4-color-success-500: #{$p4-color-success-500};
+
+    --p4-color-info-500: #{$p4-color-info-500};
+
+    --p4-color-notice-500: #{$p4-color-notice-500};
+
+    --p4-color-neutral-0: #{$p4-color-neutral-0};
+    --p4-color-neutral-50: #{$p4-color-neutral-50};
+    --p4-color-neutral-200: #{$p4-color-neutral-200};
+    --p4-color-neutral-350: #{$p4-color-neutral-350};
+    --p4-color-neutral-500: #{$p4-color-neutral-500};
+    --p4-color-neutral-650: #{$p4-color-neutral-650};
+    --p4-color-neutral-800: #{$p4-color-neutral-800};
+    --p4-color-neutral-950: #{$p4-color-neutral-950};
+    --p4-color-neutral-1000: #{$p4-color-neutral-1000};
+
+    --p4-color-primary-50: #($p4-color-primary-50);
+    --p4-color-primary-200: #($p4-color-primary-200);
+    --p4-color-primary-350: #($p4-color-primary-350);
+    --p4-color-primary-500: #($p4-color-primary-500);
+    --p4-color-primary-650: #($p4-color-primary-650);
+    --p4-color-primary-800: #($p4-color-primary-800);
+    --p4-color-primary-950: #($p4-color-primary-950);
+
+    --p4-color-secondary-50: #($p4-color-secondary-50);
+    --p4-color-secondary-200: #($p4-color-secondary-200);
+    --p4-color-secondary-350: #($p4-color-secondary-350);
+    --p4-color-secondary-500: #($p4-color-secondary-500);
+    --p4-color-secondary-650: #($p4-color-secondary-650);
+    --p4-color-secondary-800: #($p4-color-secondary-800);
+    --p4-color-secondary-950: #($p4-color-secondary-950);
+
+    --p4-color-tertiary-50: #($p4-color-tertiary-50);
+    --p4-color-tertiary-200: #($p4-color-tertiary-200);
+    --p4-color-tertiary-350: #($p4-color-tertiary-350);
+    --p4-color-tertiary-500: #($p4-color-tertiary-500);
+    --p4-color-tertiary-650: #($p4-color-tertiary-650);
+    --p4-color-tertiary-800: #($p4-color-tertiary-800);
+    --p4-color-tertiary-950: #($p4-color-tertiary-950);
   }
 
   @media (prefers-color-scheme: dark) {
-    --p4-color-surface-0: #{color.mix($p4-color-black, $p4-color-neutral, 100%)};
-    --p4-color-surface-50: #{color.mix($p4-color-black, $p4-color-neutral, 90%)};
-    --p4-color-surface-200: #{color.mix($p4-color-black, $p4-color-neutral, 40%)};
-    --p4-color-surface-500: #{$p4-color-neutral};
-    --p4-color-surface-800: #{color.mix($p4-color-white, $p4-color-neutral, 60%)};
-    --p4-color-surface-950: #{color.mix($p4-color-white, $p4-color-neutral, 90%)};
-    --p4-color-surface-1000: #{color.mix($p4-color-white, $p4-color-neutral, 100%)};
+    --p4-color-neutral-0: #{$p4-color-neutral-1000};
+    --p4-color-neutral-50: #{$p4-color-neutral-950};
+    --p4-color-neutral-200: #{$p4-color-neutral-800};
+    --p4-color-neutral-350: #{$p4-color-neutral-650};
+    --p4-color-neutral-500: #{$p4-color-neutral-500};
+    --p4-color-neutral-650: #{$p4-color-neutral-350};
+    --p4-color-neutral-800: #{$p4-color-neutral-200};
+    --p4-color-neutral-950: #{$p4-color-neutral-50};
+    --p4-color-neutral-1000: #{$p4-color-neutral-0};
+
+    --p4-color-primary-50: #($p4-color-primary-950);
+    --p4-color-primary-200: #($p4-color-primary-800);
+    --p4-color-primary-350: #($p4-color-primary-650);
+    --p4-color-primary-500: #($p4-color-primary-500);
+    --p4-color-primary-650: #($p4-color-primary-350);
+    --p4-color-primary-800: #($p4-color-primary-200);
+    --p4-color-primary-950: #($p4-color-primary-50);
+
+    --p4-color-secondary-50: #($p4-color-secondary-950);
+    --p4-color-secondary-200: #($p4-color-secondary-800);
+    --p4-color-secondary-350: #($p4-color-secondary-650);
+    --p4-color-secondary-500: #($p4-color-secondary-500);
+    --p4-color-secondary-650: #($p4-color-secondary-350);
+    --p4-color-secondary-800: #($p4-color-secondary-200);
+    --p4-color-secondary-950: #($p4-color-secondary-50);
+
+    --p4-color-tertiary-50: #($p4-color-tertiary-950);
+    --p4-color-tertiary-200: #($p4-color-tertiary-800);
+    --p4-color-tertiary-350: #($p4-color-tertiary-650);
+    --p4-color-tertiary-500: #($p4-color-tertiary-500);
+    --p4-color-tertiary-650: #($p4-color-tertiary-350);
+    --p4-color-tertiary-800: #($p4-color-tertiary-200);
+    --p4-color-tertiary-950: #($p4-color-tertiary-50);
   }
 
   // Spacers
@@ -108,17 +167,11 @@
   --p4-spacer-100-percent-neg: #{$p4-spacer-100-percent-neg};
 
   // Body text
-  --p4-text-color-base: var(--p4-color-surface-950);
-  --p4-text-color-muted: var(--p4-color-surface-500);
+  --p4-text-color-base: var(--p4-color-neutral-950);
+  --p4-text-color-muted: var(--p4-color-neutral-500);
 
   --p4-font-family-base: #{$p4-font-family-primary};
 
   --p4-text-size-base: var(--p4-font-size-m);
   --p4-text-line-height-base: var(--p4-line-height-m);
-
-  // Transitions
-  --p4-transition-duration-fast: 0.2s;
-  --p4-transition-duration-medium: 0.3s;
-  --p4-transition-duration-slow: 0.5s;
-  --p4-transition-timing-function: ease-in-out;
 }

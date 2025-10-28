@@ -1,0 +1,85 @@
+// Core colors in RGB source channels
+$p4-color-src-danger-500: (237, 15, 43) !default;
+
+$p4-color-src-warning-500: (229, 116, 11) !default;
+
+$p4-color-src-success-500: (18, 136, 44) !default;
+
+$p4-color-src-info-500: (26, 50, 164) !default;
+
+$p4-color-src-notice-500: (255, 206, 78) !default;
+
+$p4-color-src-neutral-0: (255, 255, 255) !default;
+$p4-color-src-neutral-50: (250, 250, 250) !default;
+$p4-color-src-neutral-200: (204, 204, 204) !default;
+$p4-color-src-neutral-350: (166, 166, 166) !default;
+$p4-color-src-neutral-500: (128, 128, 128) !default;
+$p4-color-src-neutral-650: (89, 89, 89) !default;
+$p4-color-src-neutral-800: (51, 51, 51) !default;
+$p4-color-src-neutral-950: (25, 26, 22) !default;
+$p4-color-src-neutral-1000: (0, 0, 0) !default;
+
+$p4-color-src-primary-50: (245, 249, 238) !default;
+$p4-color-src-primary-200: (222, 241, 175) !default;
+$p4-color-src-primary-350: (187, 232, 78) !default;
+$p4-color-src-primary-500: (149, 203, 23) !default;
+$p4-color-src-primary-650: (118, 157, 25) !default;
+$p4-color-src-primary-800: (79, 104, 20) !default;
+$p4-color-src-primary-950: (40, 52, 13) !default;
+
+$p4-color-src-secondary-50: (232, 243, 242) !default;
+$p4-color-src-secondary-200: (196, 231, 228) !default;
+$p4-color-src-secondary-350: (43, 174, 161) !default;
+$p4-color-src-secondary-500: (29, 129, 119) !default;
+$p4-color-src-secondary-650: (26, 105, 97) !default;
+$p4-color-src-secondary-800: (19, 68, 63) !default;
+$p4-color-src-secondary-950: (14, 42, 39) !default;
+
+$p4-color-src-tertiary-50: (234, 243, 249) !default;
+$p4-color-src-tertiary-200: (197, 224, 240) !default;
+$p4-color-src-tertiary-350: (112, 183, 228) !default;
+$p4-color-src-tertiary-500: (34, 144, 213) !default;
+$p4-color-src-tertiary-650: (28, 116, 170) !default;
+$p4-color-src-tertiary-800: (11, 66, 100) !default;
+$p4-color-src-tertiary-950: (4, 41, 64) !default;
+
+// Core colors in RGB format
+$p4-color-danger-500: rgb($p4-color-src-danger-500...)!default;
+$p4-color-warning-500: rgb($p4-color-src-warning-500...)!default;
+$p4-color-success-500: rgb($p4-color-src-success-500...)!default;
+$p4-color-info-500: rgb($p4-color-src-info-500...)!default;
+$p4-color-notice-500: rgb($p4-color-src-notice-500...)!default;
+
+$p4-color-neutral-0: rgb($p4-color-src-neutral-0...)!default;
+$p4-color-neutral-50: rgb($p4-color-src-neutral-50...)!default;
+$p4-color-neutral-200: rgb($p4-color-src-neutral-200...)!default;
+$p4-color-neutral-350: rgb($p4-color-src-neutral-350...)!default;
+$p4-color-neutral-500: rgb($p4-color-src-neutral-500...)!default;
+$p4-color-neutral-650: rgb($p4-color-src-neutral-650...)!default;
+$p4-color-neutral-800: rgb($p4-color-src-neutral-800...)!default;
+$p4-color-neutral-950: rgb($p4-color-src-neutral-950...)!default;
+$p4-color-neutral-1000: rgb($p4-color-src-neutral-1000...)!default;
+
+$p4-color-primary-50: rgb($p4-color-src-primary-50...)!default;
+$p4-color-primary-200: rgb($p4-color-src-primary-200...)!default;
+$p4-color-primary-350: rgb($p4-color-src-primary-350...)!default;
+$p4-color-primary-500: rgb($p4-color-src-primary-500...)!default;
+$p4-color-primary-650: rgb($p4-color-src-primary-650...)!default;
+$p4-color-primary-800: rgb($p4-color-src-primary-800...)!default;
+$p4-color-primary-950: rgb($p4-color-src-primary-950...)!default;
+
+$p4-color-secondary-50: rgb($p4-color-src-secondary-50...)!default;
+$p4-color-secondary-200: rgb($p4-color-src-secondary-200...)!default;
+$p4-color-secondary-350: rgb($p4-color-src-secondary-350...)!default;
+$p4-color-secondary-500: rgb($p4-color-src-secondary-500...)!default;
+$p4-color-secondary-650: rgb($p4-color-src-secondary-650...)!default;
+$p4-color-secondary-800: rgb($p4-color-src-secondary-800...)!default;
+$p4-color-secondary-950: rgb($p4-color-src-secondary-950...)!default;
+
+$p4-color-tertiary-50: rgb($p4-color-src-tertiary-50...)!default;
+$p4-color-tertiary-200: rgb($p4-color-src-tertiary-200...)!default;
+$p4-color-tertiary-350: rgb($p4-color-src-tertiary-350...)!default;
+$p4-color-tertiary-500: rgb($p4-color-src-tertiary-500...)!default;
+$p4-color-tertiary-650: rgb($p4-color-src-tertiary-650...)!default;
+$p4-color-tertiary-800: rgb($p4-color-src-tertiary-800...)!default;
+$p4-color-tertiary-950: rgb($p4-color-src-tertiary-950...)!default;
