@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<Layout 
+	title="Iconos - Pand4 Framework"
+	description="Galería de iconos SVG disponibles en Pand4 Framework"
+	currentPage="icons"
+>
+	<div class="container" style="padding: 2rem;">
+		<h1>Sistema de Iconos</h1>
+		<p>Componente <code>Icon</code> para renderizar iconos SVG desde <code>src/assets/images/icons/</code></p>
+
+		<section style="margin-top: 2rem;">
+			<h2>Iconos disponibles</h2>
+			
+			<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 2rem; margin-top: 1rem;">
+				<div style="text-align: center; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px;">
+					<Icon name="chevron-left" />
+					<p style="margin-top: 0.5rem; font-size: 0.875rem;"><code>chevron-left</code></p>
+				</div>
+
+				<div style="text-align: center; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px;">
+					<Icon name="chevron-right" />
+					<p style="margin-top: 0.5rem; font-size: 0.875rem;"><code>chevron-right</code></p>
+				</div>
+
+				<div style="text-align: center; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px;">
+					<Icon name="more-vertical" />
+					<p style="margin-top: 0.5rem; font-size: 0.875rem;"><code>more-vertical</code></p>
+				</div>
+
+				<div style="text-align: center; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px;">
+					<Icon name="p4-logo" />
+					<p style="margin-top: 0.5rem; font-size: 0.875rem;"><code>p4-logo</code></p>
+				</div>
+
+				<div style="text-align: center; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px;">
+					<Icon name="panda-logo" />
+					<p style="margin-top: 0.5rem; font-size: 0.875rem;"><code>panda-logo</code></p>
+				</div>
+			</div>
+		</section>
+
+		<section style="margin-top: 3rem;">
+			<h2>Uso básico</h2>
+			<pre style="background: #f5f5f5; padding: 1rem; border-radius: 8px; overflow-x: auto; margin-top: 1rem;"><code>&lt;Icon name="chevron-left" /&gt;
+&lt;Icon name="p4-logo" styleClass="custom-class" /&gt;</code></pre>
+		</section>
+
+		<section style="margin-top: 3rem;">
+			<h2>Estructura HTML generada</h2>
+			<p style="margin-top: 1rem;">El componente genera la siguiente estructura:</p>
+			<pre style="background: #f5f5f5; padding: 1rem; border-radius: 8px; overflow-x: auto; margin-top: 1rem;"><code>&lt;i class="p4-icon custom-class"&gt;
+  &lt;svg ...&gt;
+    ...
+  &lt;/svg&gt;
+&lt;/i&gt;</code></pre>
+		</section>
+
+		<section style="margin-top: 3rem;">
+			<h2>Personalización con CSS</h2>
+			<p style="margin-top: 1rem;">Puedes controlar el tamaño mediante clases de utilidad:</p>
+			<div style="display: flex; align-items: center; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap;">
+				<div style="text-align: center;">
+					<Icon name="chevron-right" styleClass="p4-w-16" />
+					<p style="font-size: 0.75rem; margin-top: 0.5rem;">16px (p4-w-16)</p>
+				</div>
+				<div style="text-align: center;">
+					<Icon name="chevron-right" styleClass="p4-w-24" />
+					<p style="font-size: 0.75rem; margin-top: 0.5rem;">24px (p4-w-24)</p>
+				</div>
+				<div style="text-align: center;">
+					<Icon name="chevron-right" styleClass="p4-w-48" />
+					<p style="font-size: 0.75rem; margin-top: 0.5rem;">48px (p4-w-48)</p>
+				</div>
+			</div>
+			<pre style="background: #f5f5f5; padding: 1rem; border-radius: 8px; overflow-x: auto; margin-top: 1.5rem;"><code>{`<Icon name="chevron-right" styleClass="p4-w-16" />
+<Icon name="chevron-right" styleClass="p4-w-24" />
+<Icon name="chevron-right" styleClass="p4-w-48" />`}</code></pre>
+		</section>
+
+		<section style="margin-top: 3rem;">
+			<h2>Características</h2>
+			<ul style="margin-top: 1rem; padding-left: 1.5rem;">
+				<li>Carga dinámica de archivos SVG</li>
+				<li>SVG renderizado exactamente como está en el archivo</li>
+				<li>Clase base <code>p4-icon</code> para todos los iconos</li>
+				<li>Soporte para clases CSS personalizadas mediante <code>styleClass</code></li>
+				<li>Control de tamaño mediante clases de utilidad (p4-w-*)</li>
+				<li>Uso de <code>currentColor</code> para herencia de color</li>
+			</ul>
+		</section>
+	</div>
+</Layout>

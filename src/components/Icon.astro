@@ -1,0 +1,27 @@
+---
+interface Props {
+  name: string;
+  styleClass?: string;
+}
+
+const { name, styleClass = '' } = Astro.props;
+
+let svgContent = '';
+
+try {
+  const icons = import.meta.glob('/src/assets/images/icons/*.svg', { 
+    query: '?raw',
+    import: 'default'
+  });
+  
+  const iconPath = `/src/assets/images/icons/${name}.svg`;
+  
+  if (icons[iconPath]) {
+    svgContent = await icons[iconPath]() as string;
+  }
+} catch (e) {
+  console.error(`Error loading icon "${name}":`, e);
+}
+---
+
+<i class={`p4-icon ${styleClass}`} set:html={svgContent} />

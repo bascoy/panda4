@@ -12,6 +12,31 @@
 // ====================================
 
 :root {
+  --docs-color-primary-50: #F5F9EE;
+  --docs-color-primary-200: #DEF1AF;
+  --docs-color-primary-350: #BBE84E;
+  --docs-color-primary-500: #95CB17;
+  --docs-color-primary-650: #769D19;
+  --docs-color-primary-800: #4F6814;
+  --docs-color-primary-950: #28340D;
+  --docs-color-secondary-50: #E8F3F2;
+  --docs-color-secondary-200: #C4E7E4;
+  --docs-color-secondary-350: #2BAEA1;
+  --docs-color-secondary-500: #1D8177;
+  --docs-color-secondary-650: #1A6961;
+  --docs-color-secondary-800: #13443F;
+  --docs-color-secondary-950: #0E2A27;
+  --docs-color-tertiary-50: #EAF3F9;
+  --docs-color-tertiary-200: #C5E0F0;
+  --docs-color-tertiary-350: #70B7E4;
+  --docs-color-tertiary-500: #2290D5;
+  --docs-color-tertiary-650: #1C74AA;
+  --docs-color-tertiary-800: #0B4264;
+  --docs-color-tertiary-950: #042940;
+  --docs-color-neutral-50: #FAFAFA;
+  --docs-color-neutral-500: #808080;
+  --docs-color-neutral-950: #191A16;
+
   // Colores específicos de la documentación
   --docs-primary: #2563eb;
   --docs-secondary: #64748b;
@@ -53,46 +78,40 @@
 // ====================================
 
 .docs-header {
-  background: var(--docs-bg-primary);
-  border-bottom: 1px solid var(--docs-border);
-  padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+.docs-nav {
   
-  .docs-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .docs-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--docs-primary);
+    text-decoration: none;
     
-    .docs-logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--docs-primary);
-      text-decoration: none;
-      
-      &:hover {
-        color: var(--docs-accent);
-      }
+    &:hover {
+      color: var(--docs-accent);
     }
+  }
+  
+  .docs-nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
     
-    .docs-nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
+    a {
+      color: var(--docs-text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
       
-      a {
-        color: var(--docs-text-secondary);
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.2s ease;
-        
-        &:hover,
-        &.active {
-          color: var(--docs-primary);
-        }
+      &:hover,
+      &.active {
+        color: var(--docs-primary);
       }
     }
   }
@@ -104,7 +123,7 @@
 
 .docs-main {
   display: grid;
-  grid-template-columns: 250px 1fr;
+  grid-template-columns: 1fr 250px;
   gap: 2rem;
   padding: 2rem 0;
   min-height: calc(100vh - 80px);

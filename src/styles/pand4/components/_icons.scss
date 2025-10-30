@@ -1,0 +1,12 @@
+.p4-icon {
+  align-items: center;
+  display: inline-flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  
+  svg {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+}

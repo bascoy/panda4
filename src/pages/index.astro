@@ -2,9 +2,142 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Pand4 Framework Demo">
-	<main>
+<Layout 
+	title="Pand4 Framework - CSS moderno y responsive"
+	description="Un framework CSS moderno, modular y responsive construido con SCSS. Fácil de usar, personalizable y optimizado para rendimiento."
+	currentPage="home"
+>
+	<div id="introduccion">
 		<h1>Pand4 Framework</h1>
-		<p>Framework CSS funcionando con Astro</p>
-	</main>
+		<p>Un framework CSS moderno, modular y responsive construido con SCSS.</p>
+		
+		<div class="docs-alert docs-alert--info">
+			<strong>¡Bienvenido!</strong> Esta es la documentación oficial de Pand4, un framework CSS diseñado para ser flexible, moderno y fácil de usar.
+		</div>
+
+		<div class="docs-demo">
+			<div class="docs-demo-preview">
+				<span class="docs-badge docs-badge--primary">v1.0.2</span>
+				<span class="docs-badge docs-badge--success">Estable</span>
+				<span class="docs-badge docs-badge--secondary">MIT License</span>
+			</div>
+			<div class="docs-demo-code">
+				<pre><code>npm install pand4</code></pre>
+			</div>
+		</div>
+	</div>
+
+	<div id="instalacion">
+		<h2>🚀 Instalación</h2>
+		<p>Instala Pand4 usando tu gestor de paquetes favorito:</p>
+		
+		<div class="docs-code-block">
+			<pre><code># NPM
+npm install pand4
+
+# Yarn
+yarn add pand4
+
+# PNPM  
+pnpm add pand4</code></pre>
+		</div>
+	</div>
+
+	<div id="uso-basico">
+		<h2>📖 Uso Básico</h2>
+		
+		<h3>En SCSS (Recomendado)</h3>
+		<div class="docs-code-block">
+			<pre><code>// Método moderno recomendado
+@use 'pand4' as *;
+
+// Con variables personalizadas
+@use 'pand4' as * with (
+  $primary-color: #3b82f6,
+  $secondary-color: #64748b
+);</code></pre>
+		</div>
+
+		<h3>En JavaScript</h3>
+		<div class="docs-code-block">
+			<pre><code>// CSS completo
+import 'pand4/css';
+
+// CSS minificado (producción)
+import 'pand4/min.css';</code></pre>
+		</div>
+
+		<h3>En HTML</h3>
+		<div class="docs-code-block">
+			<pre><code>&lt;!-- CSS completo --&gt;
+&lt;link rel="stylesheet" href="node_modules/pand4/css"&gt;
+
+&lt;!-- CSS minificado --&gt;
+&lt;link rel="stylesheet" href="node_modules/pand4/min.css"&gt;</code></pre>
+		</div>
+	</div>
+
+	<div id="variables">
+		<h2>🎨 Variables</h2>
+		<p>Pand4 incluye un sistema completo de variables CSS personalizables:</p>
+		
+		<div class="docs-alert docs-alert--success">
+			<strong>Tip:</strong> Todas las variables están disponibles tanto en SCSS como en CSS custom properties.
+		</div>
+	</div>
+
+	<div id="utilidades">
+		<h2>🔧 Utilidades</h2>
+		<p>Explora las utilidades disponibles en Pand4:</p>
+		
+		<div class="docs-demo">
+			<div class="docs-demo-preview">
+				<a href="/utilidades/espacios" style="display: inline-block; background: var(--docs-primary); color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; margin-right: 1rem;">
+					Ver Utilidades de Espaciado
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div id="iconos">
+		<h2>🎨 Iconos</h2>
+		<p>Sistema de iconos SVG con carga dinámica:</p>
+		
+		<div class="docs-demo">
+			<div class="docs-demo-preview">
+				<a href="/icons" style="display: inline-block; background: var(--docs-primary); color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px;">
+					Ver Galería de Iconos
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div id="ejemplos">
+		<h2>✨ Ejemplos</h2>
+		<p>Aquí algunos ejemplos de componentes construidos con Pand4:</p>
+		
+		<div class="docs-demo">
+			<div class="docs-demo-preview">
+				<button style="background: var(--docs-primary); color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer;">
+					Botón Primario
+				</button>
+				<button style="background: var(--docs-secondary); color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer; margin-left: 1rem;">
+					Botón Secundario
+				</button>
+			</div>
+			<div class="docs-demo-code">
+				<pre><code>&lt;button class="btn btn-primary"&gt;Botón Primario&lt;/button&gt;
+&lt;button class="btn btn-secondary"&gt;Botón Secundario&lt;/button&gt;</code></pre>
+			</div>
+		</div>
+	</div>
+
+	<div id="contribuir">
+		<h2>🤝 Contribuir</h2>
+		<p>¡Las contribuciones son bienvenidas! Visita nuestro <a href="https://github.com/bascoy/pand4">repositorio en GitHub</a> para más información.</p>
+		
+		<div class="docs-alert docs-alert--warning">
+			<strong>Desarrollo:</strong> Este framework está en desarrollo activo. ¡Tu feedback es muy valioso!
+		</div>
+	</div>
 </Layout>

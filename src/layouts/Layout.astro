@@ -1,25 +1,113 @@
 ---
 export interface Props {
 	title?: string;
+	description?: string;
+	keywords?: string;
+	currentPage?: string;
 }
 
-const { title = 'Pand4 Framework' } = Astro.props;
+const { 
+	title = 'Pand4 Framework - CSS moderno y responsive', 
+	description = 'Un framework CSS moderno, modular y responsive construido con SCSS. Fácil de usar, personalizable y optimizado para rendimiento.',
+	keywords = 'css, scss, sass, framework, responsive, pand4, frontend, ui, design-system, mobile-first, utilities, components',
+	currentPage = 'home'
+} = Astro.props;
 
-import '../styles/pand4/pand4.scss';
 import '../styles/docs.scss';
+
+// Función para determinar si una página está activa
+const isActive = (page: string) => currentPage === page ? 'active' : '';
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Pand4 CSS Framework" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="author" content="bascoy" />
+		<meta name="keywords" content={keywords} />
+		
+		<!-- Open Graph Meta Tags -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://pand4.vercel.app" />
+		<meta property="og:site_name" content="Pand4 Framework" />
+		
+		<!-- Twitter Card Meta Tags -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		
+		<!-- Canonical URL -->
+		<link rel="canonical" href="https://pand4.vercel.app" />
+		
 		<title>{title}</title>
 	</head>
-	<body>
-		<slot />
+	<body class="docs-body p4-min-h-100dvh p4-d-flex p4-flex-column p4-items-stretch p4-justify-start">
+		<!-- Header -->
+		<header class="docs-header p4-mt-8">
+			<div class="docs-header__handler p4-container">
+				<nav class="docs-nav p4-d-flex p4-flex-row p4-items-center p4-gap-x-16">
+					<a href="/" class="docs-logo">
+						
+					</a>
+					<ul class="docs-nav__list">
+						<li><a href="/" class={isActive('home')}>Inicio</a></li>
+						<li><a href="/getting-started" class={isActive('getting-started')}>Empezar</a></li>
+						<li><a href="/components" class={isActive('components')}>Componentes</a></li>
+						<li><a href="/utilities" class={isActive('utilities')}>Utilidades</a></li>
+						<li><a href="https://github.com/bascoy/pand4" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+						<li><a href="https://www.npmjs.com/package/pand4" target="_blank" rel="noopener noreferrer">NPM</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Contenido Principal -->
+		<div class="docs-container">
+			<main class="docs-main">
+				<!-- Contenido -->
+				<article class="docs-content">
+					<slot />
+				</article>
+
+				<!-- Sidebar -->
+				<aside class="docs-sidebar">
+					<h3 class="docs-sidebar-title">Navegación</h3>
+					<nav>
+						<ul class="docs-sidebar-nav">
+							<li><a href="#introduccion" class="active">Introducción</a></li>
+							<li><a href="#instalacion">Instalación</a></li>
+							<li><a href="#uso-basico">Uso Básico</a></li>
+							<li><a href="#variables">Variables</a></li>
+							<li><a href="#mixins">Mixins</a></li>
+							<li><a href="#utilidades">Utilidades</a></li>
+							<li><a href="#componentes">Componentes</a></li>
+							<li><a href="#ejemplos">Ejemplos</a></li>
+							<li><a href="#personalizacion">Personalización</a></li>
+							<li><a href="#contribuir">Contribuir</a></li>
+						</ul>
+					</nav>
+				</aside>
+			</main>
+		</div>
+
+		<!-- Footer -->
+		<footer class="docs-footer">
+			<div class="docs-container">
+				<p>
+					© 2025 <a href="https://github.com/bascoy">bascoy</a> - 
+					Pand4 Framework bajo licencia 
+					<a href="https://github.com/bascoy/pand4/blob/main/LICENSE">MIT</a>
+				</p>
+				<p>
+					Hecho con ❤️ para la comunidad de desarrolladores
+				</p>
+			</div>
+		</footer>
 	</body>
 </html>
