@@ -174,4 +174,7 @@
 
   --p4-text-size-base: var(--p4-font-size-m);
   --p4-text-line-height-base: var(--p4-line-height-m);
+
+  // Layout
+  --p4-gutter-x-global: #{$p4-gutter-x-global};
 }

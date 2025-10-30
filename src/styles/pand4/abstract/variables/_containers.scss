@@ -1,0 +1,42 @@
+@use '../functions' as *;
+@use '../setup/breakpoints' as *;
+
+$p4-container-sm: to-rem(540) !default;
+$p4-container-md: to-rem(720) !default;
+$p4-container-lg: to-rem(960) !default;
+$p4-container-xl: to-rem(1280) !default;
+$p4-container-2xl: to-rem(1440) !default;
+$p4-container-3xl: to-rem(1600) !default;
+
+$p4-containers: (
+  sm:
+    (
+      breakpoint: $p4-breakpoint-sm,
+      max-width: $p4-container-sm
+    ),
+  md:
+    (
+      breakpoint: $p4-breakpoint-md,
+      max-width: $p4-container-md
+    ),
+  lg:
+    (
+      breakpoint: $p4-breakpoint-lg,
+      max-width: $p4-container-lg
+    ),
+  xl:
+    (
+      breakpoint: $p4-breakpoint-xl,
+      max-width: $p4-container-xl
+    ),
+  2xl:
+    (
+      breakpoint: $p4-breakpoint-2xl,
+      max-width: $p4-container-2xl
+    ),
+  3xl:
+    (
+      breakpoint: $p4-breakpoint-3xl,
+      max-width: $p4-container-3xl
+    )
+) !default;

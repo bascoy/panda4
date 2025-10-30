@@ -1,0 +1,11 @@
+@use '../abstract' as *;
+
+.p4-container {
+  margin-inline-end: auto;
+  margin-inline-start: auto;
+  padding-inline-end: var(--p4-gutter-x-global);
+  padding-inline-start: var(--p4-gutter-x-global);
+  width: 100%;
+}
+
+@include generate-container();

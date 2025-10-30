@@ -3,7 +3,7 @@
 @use '../setup/breakpoints' as *;
 @use './spacers' as *;
 
-$p4-breakpoint-utilitys: (
+$p4-breakpoint-utilities: (
   xs: $p4-breakpoint-xs,
   sm: $p4-breakpoint-sm,
   md: $p4-breakpoint-md 
@@ -62,7 +62,7 @@ $p4-spacer-utility-fractions-neg: (
   '100-percent-neg': var(--p4-spacer-100-percent-neg)
 ) !default;
 
-$p4-utilitys: (
+$p4-utilities: (
   'font-size': (
     property: (font-size, line-height),
     class: 'text',
@@ -123,25 +123,25 @@ $p4-utilitys: (
     property: justify-content,
     class: 'justify',
     responsive: true,
-    values: (start: flex-start, end: flex-end, center: center, between: space-between, around: space-around, evenly: space-evenly)
+    values: (stretch: stretch, start: flex-start, end: flex-end, center: center, between: space-between, around: space-around, evenly: space-evenly)
   ),
   'justify-items': (
     property: justify-items,
-    class: 'justify',
+    class: 'justify-items',
     responsive: true,
-    values: (start: flex-start, end: flex-end, center: center, between: space-between, around: space-around, evenly: space-evenly)
+    values: (stretch: stretch, start: flex-start, end: flex-end, center: center, between: space-between, around: space-around, evenly: space-evenly)
   ),
   'align-content': (
     property: align-content,
     class: 'content',
     responsive: true,
-    values: (start: flex-start, end: flex-end, center: center, between: space-between, around: space-around, evenly: space-evenly)
+    values: (stretch: stretch, start: flex-start, end: flex-end, center: center, between: space-between, around: space-around, evenly: space-evenly)
   ),
   'align-items': (
     property: align-items,
     class: 'items',
     responsive: true,
-    values: (start: flex-start, end: flex-end, center: center, between: space-between, around: space-around, evenly: space-evenly)
+    values: (stretch: stretch, start: flex-start, end: flex-end, center: center, between: space-between, around: space-around, evenly: space-evenly)
   ),
   'row-gap': (
     property: row-gap,

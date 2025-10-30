@@ -52,3 +52,21 @@
     }
   }
 }
+
+@mixin generate-container() {
+  
+  @each $key, $container in $p4-containers {
+    $breakpoint: map.get($container, breakpoint);
+    $max-width: map.get($container, max-width);
+    
+    .p4-container-#{$key} {
+      @extend .p4-container;
+    }
+
+    @include mq($min-screen: $breakpoint) {
+      .p4-container-#{$key} {
+        max-width: #{$max-width};
+      }
+    }
+  }
+}
