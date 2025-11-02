@@ -3,7 +3,6 @@
 @use './breakpoints' as *;
 
 $p4-breakpoint-utilities: (
-  xs: $p4-breakpoint-xs,
   sm: $p4-breakpoint-sm,
   md: $p4-breakpoint-md 
 ) !default;

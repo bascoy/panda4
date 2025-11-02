@@ -4,33 +4,74 @@
 
 @use '../mixins/mq' as *;
 
+/// Genera clases de utilidad CSS a partir de una configuración
+/// @param {Map} $utility - Configuración de la utilidad con keys: property, class, values
+/// @param {String|false} $breakpoint - Nombre del breakpoint para clases responsive (ej: 'md')
 @mixin generate-utility($utility, $breakpoint: false) {
+  // Extraer configuración de la utilidad
   $values: map.get($utility, values);
   $property: map.get($utility, property);
-  $property-class: map.get($utility, class) or $property;
+  $class-base: map.get($utility, class) or $property;
 
-  // Normalizar valores simples a formato key-value
-  @if meta.type-of($values) == 'string' or meta.type-of(list.nth($values, 1)) != 'list' {
+  // Convertir valores simples (display: flex inline block) a pares key-value
+  @if _is-simple-list($values) {
     $values: list.zip($values, $values);
   }
 
+  // Generar una clase por cada valor
   @each $key, $value in $values {
-    $modifier: if($key, '-#{$key}', '');
-    $prefix: if($breakpoint, '.#{$breakpoint}\\:', '');
-    $class-name: '#{$prefix}.p4-#{$property-class}#{$modifier}';
-
     @if $value {
+      $class-name: _build-class-name($class-base, $key, $breakpoint);
+      
       #{$class-name} {
-        @if meta.type-of($property) == 'list' or meta.type-of($property) == 'map' {
-          // Múltiples propiedades (ej: font-size + line-height)
-          @each $prop, $val in $value {
-            #{$prop}: #{$val};
-          }
+        @if _is-multi-property($property) {
+          @include _apply-multi-properties($value);
         } @else {
-          // Propiedad única
-          #{$property}: #{$value};
+          @include _apply-single-property($property, $value);
         }
       }
     }
   }
+}
+
+/// Comprueba si los valores son una lista simple sin estructura key-value
+/// @param {*} $values - Valores a comprobar
+/// @return {Boolean}
+@function _is-simple-list($values) {
+  @return meta.type-of($values) == 'string' or 
+          (meta.type-of($values) == 'list' and meta.type-of(list.nth($values, 1)) != 'list');
+}
+
+/// Comprueba si la propiedad es múltiple (ej: font-size + line-height)
+/// @param {*} $property - Propiedad a comprobar
+/// @return {Boolean}
+@function _is-multi-property($property) {
+  @return meta.type-of($property) == 'list' or meta.type-of($property) == 'map';
+}
+
+/// Construye el nombre de la clase CSS con prefijo y modificadores
+/// @param {String} $base - Clase base (ej: 'd', 'flex')
+/// @param {String|false} $modifier - Modificador opcional (ej: 'flex', 'block')
+/// @param {String|false} $breakpoint - Breakpoint opcional (ej: 'md')
+/// @return {String} Nombre completo de la clase (ej: '.md\:d-flex')
+@function _build-class-name($base, $modifier, $breakpoint) {
+  $modifier-part: if($modifier, '-#{$modifier}', '');
+  $breakpoint-part: if($breakpoint, '#{$breakpoint}\\:', '');
+  
+  @return '.#{$breakpoint-part}p4-#{$base}#{$modifier-part}';
+}
+
+/// Aplica múltiples propiedades CSS (ej: font-size + line-height)
+/// @param {Map} $properties - Mapa de propiedades y valores
+@mixin _apply-multi-properties($properties) {
+  @each $prop, $val in $properties {
+    #{$prop}: #{$val};
+  }
+}
+
+/// Aplica una única propiedad CSS
+/// @param {String} $property - Nombre de la propiedad CSS
+/// @param {*} $value - Valor de la propiedad
+@mixin _apply-single-property($property, $value) {
+  #{$property}: #{$value};
 }
