@@ -1,5 +1,5 @@
 @use '../functions' as *;
-@use '../setup/breakpoints' as *;
+@use './breakpoints' as *;
 
 $p4-container-sm: to-rem(540) !default;
 $p4-container-md: to-rem(720) !default;

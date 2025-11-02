@@ -1,0 +1,6 @@
+@use '../../abstract/' as *;
+
+:root {
+  --p4-gutter-x: to-rem(16);
+  --p4-gutter-y: to-rem(16);
+}

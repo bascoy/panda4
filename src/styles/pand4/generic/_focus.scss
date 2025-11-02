@@ -1,0 +1,9 @@
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: var(--p4-focus-ring);
+  outline-offset: var(--p4-focus-ring-offset);
+  border-radius: var(--p4-focus-ring-radius);
+}

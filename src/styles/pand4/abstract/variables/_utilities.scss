@@ -1,7 +1,6 @@
 @use 'sass:map';
 
-@use '../setup/breakpoints' as *;
-@use './spacers' as *;
+@use './breakpoints' as *;
 
 $p4-breakpoint-utilities: (
   xs: $p4-breakpoint-xs,
@@ -266,12 +265,12 @@ $p4-utilities: (
     property: margin-inline-start,
     class: 'ms',
     responsive: true,
-    values: map.merge($p4-spacer-utility-numbers, $p4-spacer-utility-fractions)
+    values: map.merge($p4-spacer-utility-numbers, map.merge($p4-spacer-utility-fractions, (auto: auto)))
   ),
   'margin-inline-end': (
     property: margin-inline-end,
     class: 'me',
     responsive: true,
-    values: map.merge($p4-spacer-utility-numbers, $p4-spacer-utility-fractions)
+    values: map.merge($p4-spacer-utility-numbers, map.merge($p4-spacer-utility-fractions, (auto: auto)))
   )
 ) !default;

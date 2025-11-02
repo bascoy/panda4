@@ -1,6 +1,6 @@
-@use './abstract' as *;
-@use './generic' as *;
-@use './elements' as *;
-@use './objects' as *;
-@use './components' as *;
-@use './utilities' as *;
+@forward 'abstract';
+@forward 'generic';
+@forward 'elements';
+@forward 'objects';
+@forward 'components';
+@forward 'utilities';

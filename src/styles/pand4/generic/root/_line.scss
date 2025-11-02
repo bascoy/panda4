@@ -1,0 +1,7 @@
+:root {
+  --p4-line-width: 1px;
+
+  @media (min-resolution: 2dppx) {
+    --p4-line-width: .5px;
+  }
+}

@@ -1,0 +1,39 @@
+@use '../../abstract' as *;
+
+:root {
+  --p4-btn-ghost-bg: transparent;
+  --p4-btn-ghost-border: none;
+  --p4-btn-ghost-box-shadow: none;
+  --p4-btn-ghost-color: var(--p4-color-primary-500);
+
+  --p4-btn-ghost-bg--hover: transparent;
+  --p4-btn-ghost-border--hover: none;
+  --p4-btn-ghost-box-shadow--hover: none;
+  --p4-btn-ghost-color--hover: var(--p4-color-primary-650);
+
+  --p4-btn-ghost-bg--active: transparent;
+  --p4-btn-ghost-border--active: none;
+  --p4-btn-ghost-box-shadow--active: none;
+  --p4-btn-ghost-color--active: var(--p4-color-primary-350);
+}
+
+.p4-btn.p4-btn--ghost {
+  background-color: var(--p4-btn-ghost-bg);
+  border: var(--p4-btn-ghost-border);
+  box-shadow: var(--p4-btn-ghost-box-shadow);
+  color: var(--p4-btn-ghost-color);
+
+  &:hover {
+    background-color: var(--p4-btn-ghost-bg--hover);
+    border: var(--p4-btn-ghost-border--hover);
+    box-shadow: var(--p4-btn-ghost-box-shadow--hover);
+    color: var(--p4-btn-ghost-color--hover);
+  }
+  
+  &:active {
+    background-color: var(--p4-btn-ghost-bg--active);
+    border: var(--p4-btn-ghost-border--active);
+    box-shadow: var(--p4-btn-ghost-box-shadow--active);
+    color: var(--p4-btn-ghost-color--active);
+  }
+}
