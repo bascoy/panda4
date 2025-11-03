@@ -6,15 +6,20 @@
 
 // Importar el framework Pand4 completo
 @use './pand4/pand4' as *;
+@use './pand4/abstract/index' as *;
 
 // ====================================
-// VARIABLES ESPECÍFICAS PARA DOCS
+// VARIABLES
 // ====================================
 
 :root {
   // Pand4 variables overrides
+  --p4-font-family-secondary: Impact, 'Arial Black', 'Franklin Gothic Bold', sans-serif;
   --p4-text-color-base: var(--p4-color-primary-950);
   --p4-text-color-base-inverse: var(--p4-color-primary-50);
+
+  // Variables de espaciado específicas para docs
+  --docs-menu-z-index: 200;
 }
 
 // ====================================
@@ -31,109 +36,106 @@ body {
 
 .docs-header {
   background-color: var(--p4-color-neutral-950);
+  border-top: solid var(--p4-spacer-8) var(--p4-color-primary-50);
   color: var(--p4-color-primary-50);
   position: sticky;
   top: 0;
-  z-index: 100;
+
+  &__handler {
+    padding-inline: 0;
+  }
 }
 
 .docs-logo {
   color: var(--p4-color-primary-50);
   width: to-rem(170);
-  margin-inline-start: calc(var(--p4-gutter-x-global) * -1);
-  
-  &:hover {
-    color: var(--docs-accent);
-  }
-}
-
-.docs-menu-toggle {
 }
 
 .docs-menu {
-  display: flex;
-  list-style: none;
-  gap: to-rem(24);
-  margin: 0;
-  padding: 0;
-  margin-left: auto;
-  
-  li {
-    margin: 0;
-  }
-  
-  a {
-    color: var(--p4-color-primary-50);
-    text-decoration: none;
-    font-weight: 500;
-    transition: opacity 0.2s ease;
-    
-    &:hover,
-    &.active {
-      opacity: 0.8;
+  @include mq($max-screen: $p4-breakpoint-md) {
+    &__list {
+      align-items: stretch;
+      background: var(--p4-color-neutral-950);
+      display: flex;
+      flex-flow: column nowrap;
+      gap: var(--p4-spacer-24);
+      inset-block-end: 0;
+      inset-block-start: 0;
+      inset-inline-end: 0;
+      justify-content: flex-start;
+      list-style: none;
+      margin-block: 0;
+      margin-inline: 0 auto;
+      max-width: to-rem(320);
+      overflow-y: auto;
+      padding: var(--p4-spacer-24);
+      position: fixed;
+      transform: translateX(100%);
+      transition: transform var(--p4-transition-duration) var(--p4-transition-timing-function);
+      width: 100%;
+      z-index: var(--docs-menu-z-index);
     }
-  }
-  
-  @media (max-width: to-rem(768)) {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    max-width: to-rem(320);
-    background: var(--p4-color-neutral-950);
-    flex-direction: column;
-    padding: to-rem(80) to-rem(32) to-rem(32);
-    margin: 0;
-    gap: to-rem(16);
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
-    z-index: 200;
-    overflow-y: auto;
+
+    &__link {
+      color: var(--p4-color-primary-50);
+      font-weight: var(--p4-font-weight-bold);
+      text-decoration-line: none;
+      text-transform: uppercase;
+    }
     
+    // Open state
     &.is-open {
-      transform: translateX(0);
+      &::before {
+        animation: p4-fade-in var(--p4-transition-duration) var(--p4-transition-timing-function) forwards;
+        background: rgba(var(--p4-color-src-neutral-950), 0.5);
+        content: '';
+        inset-block-end: 0;
+        inset-block-start: 0;
+        inset-inline-end: 0;
+        inset-inline-start: 0;
+        overflow: hidden;
+        position: fixed;
+        z-index: calc(var(--docs-menu-z-index) - 1);
+      }
+
+      .docs-menu__list {
+        transform: translateX(0);
+      }
     }
+  }
+
+  @include mq($min-screen: $p4-breakpoint-md) {
+    border-top: solid var(--p4-spacer-8) var(--p4-color-primary-50);
+    flex: 1 1 auto;
+    padding-block: var(--p4-spacer-4);
+    padding-inline: var(--p4-gutter-x);
+    width: 100%;
     
-    a {
-      display: block;
-      padding: to-rem(12) to-rem(16);
-      border-radius: to-rem(8);
-      
-      &:hover,
-      &.active {
-        background: rgba(255, 255, 255, 0.1);
+    &__list {
+      align-items: center;
+      display: flex;
+      flex-flow: row nowrap;
+      gap: var(--p4-spacer-16);
+      justify-content: flex-end;
+    }
+
+    &__link {
+      color: var(--p4-color-primary-50);
+      font-weight: var(--p4-font-weight-bold);
+      text-decoration-line: none;
+      text-transform: uppercase;
+      display: inline-flex;
+
+      &.is-active {
+        text-decoration-line: underline;
+        text-decoration-thickness: var(--p4-spacer-2);
+        text-underline-offset: var(--p4-spacer-4);
       }
     }
   }
 }
 
-// Overlay para cerrar el menú
-body.menu-open {
-  @media (max-width: to-rem(768)) {
-    &::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 150;
-      animation: fadeIn 0.3s ease;
-    }
-    
-    overflow: hidden;
-  }
-}
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+body.is-locked {
+  overflow: hidden;
 }
-

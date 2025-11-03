@@ -1,5 +1,4 @@
 :root {
-  // Body text
   --p4-text-color-base: var(--p4-color-neutral-950);
   --p4-text-color-base-inverse: var(--p4-color-neutral-50);
   --p4-text-color-muted: var(--p4-color-neutral-500);
@@ -9,4 +8,7 @@
 
   --p4-text-size-base: var(--p4-font-size-m);
   --p4-text-line-height-base: var(--p4-line-height-m);
+
+  --p4-font-weight-base: 400;
+  --p4-font-weight-bold: 700;
 }

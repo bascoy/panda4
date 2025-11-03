@@ -3,31 +3,31 @@
 :root {
   // Absolute spacers
   --p4-spacer-0: 0;
-  --p4-spacer-1: to-rem(1);
-  --p4-spacer-2: to-rem(2);
-  --p4-spacer-4: to-rem(4);
-  --p4-spacer-8: to-rem(8);
-  --p4-spacer-12: to-rem(12);
-  --p4-spacer-16: to-rem(16);
-  --p4-spacer-20: to-rem(20);
-  --p4-spacer-24: to-rem(24);
-  --p4-spacer-32: to-rem(32);
-  --p4-spacer-40: to-rem(40);
-  --p4-spacer-48: to-rem(48);
-  --p4-spacer-56: to-rem(56);
-  --p4-spacer-64: to-rem(64);
-  --p4-spacer-72: to-rem(72);
-  --p4-spacer-80: to-rem(80);
-  --p4-spacer-88: to-rem(88);
-  --p4-spacer-96: to-rem(96);
-  --p4-spacer-104: to-rem(104);
-  --p4-spacer-112: to-rem(112);
-  --p4-spacer-120: to-rem(120);
-  --p4-spacer-128: to-rem(128);
-  --p4-spacer-136: to-rem(136);
-  --p4-spacer-144: to-rem(144);
-  --p4-spacer-152: to-rem(152);
-  --p4-spacer-160: to-rem(160);
+  --p4-spacer-1: #{to-rem(1)};
+  --p4-spacer-2: #{to-rem(2)};
+  --p4-spacer-4: #{to-rem(4)};
+  --p4-spacer-8: #{to-rem(8)};
+  --p4-spacer-12: #{to-rem(12)};
+  --p4-spacer-16: #{to-rem(16)};
+  --p4-spacer-20: #{to-rem(20)};
+  --p4-spacer-24: #{to-rem(24)};
+  --p4-spacer-32: #{to-rem(32)};
+  --p4-spacer-40: #{to-rem(40)};
+  --p4-spacer-48: #{to-rem(48)};
+  --p4-spacer-56: #{to-rem(56)};
+  --p4-spacer-64: #{to-rem(64)};
+  --p4-spacer-72: #{to-rem(72)};
+  --p4-spacer-80: #{to-rem(80)};
+  --p4-spacer-88: #{to-rem(88)};
+  --p4-spacer-96: #{to-rem(96)};
+  --p4-spacer-104: #{to-rem(104)};
+  --p4-spacer-112: #{to-rem(112)};
+  --p4-spacer-120: #{to-rem(120)};
+  --p4-spacer-128: #{to-rem(128)};
+  --p4-spacer-136: #{to-rem(136)};
+  --p4-spacer-144: #{to-rem(144)};
+  --p4-spacer-152: #{to-rem(152)};
+  --p4-spacer-160: #{to-rem(160)};
 
   // Auto spacer
   --p4-spacer-auto: auto;

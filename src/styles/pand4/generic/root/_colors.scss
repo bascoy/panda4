@@ -1,43 +1,44 @@
 :root {
-  @media (prefers-color-scheme: light) {
-    --p4-color-danger-500: rgb(var(--p4-color-src-danger-500));
+  --p4-color-danger-500: rgb(var(--p4-color-src-danger-500));
 
-    --p4-color-warning-500: rgb(var(--p4-color-src-warning-500));
+  --p4-color-warning-500: rgb(var(--p4-color-src-warning-500));
 
-    --p4-color-success-500: rgb(var(--p4-color-src-success-500));
+  --p4-color-success-500: rgb(var(--p4-color-src-success-500));
 
-    --p4-color-info-500: rgb(var(--p4-color-src-info-500));
+  --p4-color-info-500: rgb(var(--p4-color-src-info-500));
 
-    --p4-color-notice-500: rgb(var(--p4-color-src-notice-500));
+  --p4-color-notice-500: rgb(var(--p4-color-src-notice-500));
 
-    --p4-color-neutral-0: rgb(var(--p4-color-src-neutral-0));
-    --p4-color-neutral-50: rgb(var(--p4-color-src-neutral-50));
-    --p4-color-neutral-200: rgb(var(--p4-color-src-neutral-200));
-    --p4-color-neutral-350: rgb(var(--p4-color-src-neutral-350));
-    --p4-color-neutral-500: rgb(var(--p4-color-src-neutral-500));
-    --p4-color-neutral-650: rgb(var(--p4-color-src-neutral-650));
-    --p4-color-neutral-800: rgb(var(--p4-color-src-neutral-800));
-    --p4-color-neutral-950: rgb(var(--p4-color-src-neutral-950));
-    --p4-color-neutral-1000: rgb(var(--p4-color-src-neutral-1000));
+  --p4-color-neutral-0: rgb(var(--p4-color-src-neutral-0));
+  --p4-color-neutral-50: rgb(var(--p4-color-src-neutral-50));
+  --p4-color-neutral-200: rgb(var(--p4-color-src-neutral-200));
+  --p4-color-neutral-350: rgb(var(--p4-color-src-neutral-350));
+  --p4-color-neutral-500: rgb(var(--p4-color-src-neutral-500));
+  --p4-color-neutral-650: rgb(var(--p4-color-src-neutral-650));
+  --p4-color-neutral-800: rgb(var(--p4-color-src-neutral-800));
+  --p4-color-neutral-950: rgb(var(--p4-color-src-neutral-950));
+  --p4-color-neutral-1000: rgb(var(--p4-color-src-neutral-1000));
 
-    --p4-color-primary-50: rgb(var(--p4-color-src-primary-50));
-    --p4-color-primary-200: rgb(var(--p4-color-src-primary-200));
-    --p4-color-primary-350: rgb(var(--p4-color-src-primary-350));
-    --p4-color-primary-500: rgb(var(--p4-color-src-primary-500));
-    --p4-color-primary-650: rgb(var(--p4-color-src-primary-650));
-    --p4-color-primary-800: rgb(var(--p4-color-src-primary-800));
-    --p4-color-primary-950: rgb(var(--p4-color-src-primary-950));
+  --p4-color-primary-50: rgb(var(--p4-color-src-primary-50));
+  --p4-color-primary-200: rgb(var(--p4-color-src-primary-200));
+  --p4-color-primary-350: rgb(var(--p4-color-src-primary-350));
+  --p4-color-primary-500: rgb(var(--p4-color-src-primary-500));
+  --p4-color-primary-650: rgb(var(--p4-color-src-primary-650));
+  --p4-color-primary-800: rgb(var(--p4-color-src-primary-800));
+  --p4-color-primary-950: rgb(var(--p4-color-src-primary-950));
 
-    --p4-color-secondary-50: rgb(var(--p4-color-src-secondary-50));
-    --p4-color-secondary-200: rgb(var(--p4-color-src-secondary-200));
-    --p4-color-secondary-350: rgb(var(--p4-color-src-secondary-350));
-    --p4-color-secondary-500: rgb(var(--p4-color-src-secondary-500));
-    --p4-color-secondary-650: rgb(var(--p4-color-src-secondary-650));
-    --p4-color-secondary-800: rgb(var(--p4-color-src-secondary-800));
-    --p4-color-secondary-950: rgb(var(--p4-color-src-secondary-950));
-  }
+  --p4-color-secondary-50: rgb(var(--p4-color-src-secondary-50));
+  --p4-color-secondary-200: rgb(var(--p4-color-src-secondary-200));
+  --p4-color-secondary-350: rgb(var(--p4-color-src-secondary-350));
+  --p4-color-secondary-500: rgb(var(--p4-color-src-secondary-500));
+  --p4-color-secondary-650: rgb(var(--p4-color-src-secondary-650));
+  --p4-color-secondary-800: rgb(var(--p4-color-src-secondary-800));
+  --p4-color-secondary-950: rgb(var(--p4-color-src-secondary-950));
+}
+
   
-  @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
+  :root {
     --p4-color-danger-500: rgb(var(--p4-color-src-danger-500));
 
     --p4-color-warning-500: rgb(var(--p4-color-src-warning-500));

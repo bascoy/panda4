@@ -10,15 +10,15 @@
   --p4-btn-cursor: pointer;
   --p4-btn-display: inline-flex;
   --p4-btn-font-size: var(--p4-text-size-base);
-  --p4-btn-gap: to-rem(8);
+  --p4-btn-gap: #{to-rem(8)};
   --p4-btn-justify-content: center;
   --p4-btn-line-height: var(--p4-text-line-height-base);
   --p4-btn-min-height: #{to-rem(42)};
   --p4-btn-min-width: #{to-rem(42)};
-  --p4-btn-padding-x: to-rem(16);
-  --p4-btn-padding-y: to-rem(8);
+  --p4-btn-padding-x: #{to-rem(16)};
+  --p4-btn-padding-y: #{to-rem(8)};
   --p4-btn-text-decoration-none: none;
-  --p4-btn-transition: all 0.2s ease;
+  --p4-btn-transition: all var(--p4-transition-duration) var(--p4-transition-timing-function);
 
   --p4-btn-bg--hover: var(--p4-color-primary-650);
   --p4-btn-border--hover: var(--p4-line-width) solid transparent;
