@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.4] - 2025-11-04
+
+### Fixed
+- Fixed `main` field in `package.json` to point to compiled CSS instead of SCSS
+- Added `style` field for better CSS framework compatibility
+- Added `sass` field to expose SCSS source files
+- Improved `exports` configuration for better module resolution
+- Ensures Bundlephobia can properly analyze package size
+
 ## [1.0.3] - 2025-11-04
 
 ### Added
@@ -50,6 +59,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Flexible spacing scale
 - Cross-browser compatibility
 
-[Unreleased]: https://github.com/bascoy/pand4/compare/v1.0.3...HEAD
+[Unreleased]: https://github.com/bascoy/pand4/compare/v1.0.4...HEAD
+[1.0.4]: https://github.com/bascoy/pand4/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/bascoy/pand4/compare/v1.0.0...v1.0.3
 [1.0.0]: https://github.com/bascoy/pand4/releases/tag/v1.0.0

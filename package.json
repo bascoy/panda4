@@ -2,12 +2,19 @@
   "name": "pand4",
   "version": "1.0.3",
   "description": "Pand4 - A modern, modular and responsive SCSS framework",
-  "main": "./src/styles/pand4/pand4.scss",
+  "main": "./src/styles/pand4/pand4.css",
+  "style": "./src/styles/pand4/pand4.css",
+  "sass": "./src/styles/pand4/pand4.scss",
   "type": "module",
   "exports": {
-    ".": "./src/styles/pand4/pand4.scss",
+    ".": {
+      "sass": "./src/styles/pand4/pand4.scss",
+      "style": "./src/styles/pand4/pand4.css",
+      "default": "./src/styles/pand4/pand4.css"
+    },
     "./css": "./src/styles/pand4/pand4.css",
-    "./min.css": "./src/styles/pand4/pand4.min.css"
+    "./min.css": "./src/styles/pand4/pand4.min.css",
+    "./scss": "./src/styles/pand4/pand4.scss"
   },
   "files": [
     "src/styles/pand4/**/*",
