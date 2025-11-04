@@ -7,26 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.3] - 2025-11-04
+
 ### Added
-- Modern GitHub Actions workflow for automated releases
-- NPM provenance support for enhanced security
-- Compressed CSS builds (`.min.css`) for production use
-- Manual release workflow via GitHub Actions
-- Clean script for removing generated CSS files
-- CSS linting and validation scripts
-- Watch mode for development
+- New `CodeBlock` component for documentation with syntax highlighting and copy button
+- New `DemoBlock` component for unified demo display
+- Button icon variant (`.p4-btn--icon`) for icon-only buttons
+- Font weight variables and utilities
+- NPM badges on homepage
+- Comprehensive documentation styles in `docs.scss`
 
 ### Changed
-- **BREAKING**: Simplified package exports to 3 essential paths only
-- Updated package.json with cleaner export structure
-- Improved build scripts with better error handling
-- Enhanced documentation with simplified usage examples
-- CSS compilation now excludes source maps for cleaner output
+- **Documentation Update**: Emphasized CSS Variables as recommended customization method
+- Updated README.md to prioritize CSS custom properties over SCSS configuration
+- Added warning that SCSS configuration only for breakpoints and containers
+- Refactored `index.astro` with improved structure and examples
+- Updated `Layout.astro` with server-side dynamic year
+- Enhanced documentation components for better code examples
 
-### Fixed
-- CSS compilation now uses expanded style for better readability
-- GitHub Actions workflows updated to use modern actions
-- Removed redundant export paths to reduce confusion
+### Improved
+- Better documentation architecture with reusable components
+- Clearer customization guidelines for users
+- More comprehensive CSS variable examples
 
 ## [1.0.0] - 2025-10-23
 
@@ -48,5 +50,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Flexible spacing scale
 - Cross-browser compatibility
 
-[Unreleased]: https://github.com/bascoy/pand4/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/bascoy/pand4/compare/v1.0.3...HEAD
+[1.0.3]: https://github.com/bascoy/pand4/compare/v1.0.0...v1.0.3
 [1.0.0]: https://github.com/bascoy/pand4/releases/tag/v1.0.0
