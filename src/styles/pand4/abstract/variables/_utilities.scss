@@ -8,6 +8,7 @@ $p4-breakpoint-utilities: (
 ) !default;
 
 $p4-spacer-utility-numbers: (
+  '0\\!': 'var(--p4-spacer-0) !important',
   0: var(--p4-spacer-0),
   1: var(--p4-spacer-1),
   2: var(--p4-spacer-2),
@@ -76,10 +77,22 @@ $p4-utilities: (
       )
     )
   ),
+  'font-weight': (
+    property: font-weight,
+    class: 'font',
+    responsive: true,
+    values: (light: var(--p4-font-weight-light), normal: var(--p4-font-weight-normal), bold: var(--p4-font-weight-bold), black: var(--p4-font-weight-black))
+  ),
   'text-transform': (
     property: text-transform,
     class: 'text',
     values: (uppercase: var(--p4-text-uppercase), normal-case: var(--p4-text-normal-case))
+  ),
+  'text-align': (
+    property: text-align,
+    class: 'text',
+    responsive: true,
+    values: (start: start, center: center, end: end, justify: justify)
   ),
   'display': (
     property: display,

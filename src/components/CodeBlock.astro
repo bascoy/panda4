@@ -1,0 +1,73 @@
+---
+export interface Props {
+  title?: string;
+  language?: 'html' | 'css' | 'scss' | 'javascript' | 'bash';
+  code: string;
+  showCopy?: boolean;
+}
+
+const { 
+  title = 'Code',
+  language = 'html',
+  code,
+  showCopy = true
+} = Astro.props;
+
+const languageLabels = {
+  html: 'HTML',
+  css: 'CSS',
+  scss: 'SCSS',
+  javascript: 'JavaScript',
+  bash: 'Bash'
+};
+---
+
+<div class="docs-code-block">
+  <div class="docs-code-block__header">
+    <h3 class="docs-code-block__title">{languageLabels[language]}</h3>
+    <div class="docs-code-block__actions">
+      {showCopy && (
+        <button 
+          class="docs-code-block__copy-btn" 
+          data-code={code}
+          aria-label="Copiar código"
+        >
+          Copiar
+        </button>
+      )}
+    </div>
+  </div>
+  <div class="docs-code-block__content">
+    <pre class="docs-code-block__pre"><code class="docs-code-block__code">{code}</code></pre>
+  </div>
+</div>
+
+<script>
+  function initCopyButtons() {
+    const copyButtons = document.querySelectorAll<HTMLButtonElement>('.docs-code-block__copy-btn');
+    
+    copyButtons.forEach(button => {
+      button.addEventListener('click', async () => {
+        const code = button.getAttribute('data-code');
+        if (!code) return;
+
+        try {
+          await navigator.clipboard.writeText(code);
+          const originalText = button.textContent;
+          button.textContent = '✓ Copiado';
+          button.style.color = 'var(--p4-color-success-400)';
+          
+          setTimeout(() => {
+            button.textContent = originalText;
+            button.style.color = '';
+          }, 2000);
+        } catch (err) {
+          console.error('Error al copiar:', err);
+        }
+      });
+    });
+  }
+
+  initCopyButtons();
+  document.addEventListener('astro:page-load', initCopyButtons);
+</script>

@@ -16,7 +16,7 @@ const {
 import '../styles/docs.scss';
 import Icon from '../components/Icon.astro';
 
-// Función para determinar si una página está activa
+const currentYear = new Date().getFullYear();
 const isActive = (page: string) => currentPage === page ? 'is-active' : '';
 ---
 
@@ -48,23 +48,46 @@ const isActive = (page: string) => currentPage === page ? 'is-active' : '';
 		
 		<title>{title}</title>
 	</head>
-	<body class="docs-body p4-min-h-100dvh p4-d-flex p4-flex-column p4-items-stretch p4-justify-start">
+	<body class="p4-min-h-100dvh p4-d-flex p4-flex-column p4-items-stretch p4-justify-start">
 		<!-- Header -->
 		<header class="docs-header">
 			<div class="docs-header__handler p4-container">
-				<nav class="docs-nav p4-d-flex p4-flex-row p4-flex-wrap p4-items-center p4-gap-x-16">
+				<nav class="docs-nav p4-d-flex p4-flex-row p4-flex-wrap p4-items-center">
 					<a href="/" class="docs-logo p4-d-flex p4-flex-column">
 						<Icon name="panda-logo" />
 					</a>
-					<button class="docs-menu-toggle md:p4-d-none p4-btn p4-btn--naked-inverse p4-ms-auto" aria-label="Abrir menú" aria-expanded="false">
+					<span class="docs-radiator">
+						<span class="docs-radiator__item"></span>
+						<span class="docs-radiator__item"></span>
+						<span class="docs-radiator__item"></span>
+						<span class="docs-radiator__item"></span>
+						<span class="docs-radiator__item"></span>
+						<span class="docs-radiator__item"></span>
+						<span class="docs-radiator__item"></span>
+						<span class="docs-radiator__item"></span>
+						<span class="docs-radiator__item"></span>
+						<span class="docs-radiator__item"></span>
+						<span class="docs-radiator__item"></span>
+						<span class="docs-radiator__item"></span>
+						<span class="docs-radiator__item"></span>
+						<span class="docs-radiator__item"></span>
+						<span class="docs-radiator__item"></span>
+						<span class="docs-radiator__item"></span>
+						<span class="docs-radiator__item"></span>
+						<span class="docs-radiator__item"></span>
+						<span class="docs-radiator__item"></span>
+					</span>
+					<button class="docs-menu-toggle md:p4-d-none p4-btn p4-btn--naked-inverse p4-btn--icon" aria-label="Abrir menú" aria-expanded="false">
 						<Icon name="more-vertical" styleClass="p4-w-24" />
 					</button>
 					<div class="docs-menu">
 						<ul class="docs-menu__list">
 							<li class="docs-menu__item"><a class={`docs-menu__link ${isActive('home')}`} href="/">Inicio</a></li>
+							<!--
 							<li class="docs-menu__item"><a class={`docs-menu__link ${isActive('getting-started')}`} href="/getting-started">Empezar</a></li>
 							<li class="docs-menu__item"><a class={`docs-menu__link ${isActive('components')}`} href="/components">Componentes</a></li>
 							<li class="docs-menu__item"><a class={`docs-menu__link ${isActive('utilities')}`} href="/utilities">Utilidades</a></li>
+							-->
 							<li class="docs-menu__item"><a class="docs-menu__link" href="https://github.com/bascoy/pand4" target="_blank" rel="noopener noreferrer">GitHub</a></li>
 							<li class="docs-menu__item"><a class="docs-menu__link" href="https://www.npmjs.com/package/pand4" target="_blank" rel="noopener noreferrer">NPM</a></li>
 						</ul>
@@ -74,39 +97,20 @@ const isActive = (page: string) => currentPage === page ? 'is-active' : '';
 		</header>
 
 		<!-- Contenido Principal -->
-		<div class="docs-container">
-			<main class="docs-main">
+		<div class="docs-body">
+			<main class="docs-body__handler p4-container">
 				<!-- Contenido -->
-				<article class="docs-content">
+				<div class="docs-content">
 					<slot />
-				</article>
-
-				<!-- Sidebar -->
-				<aside class="docs-sidebar">
-					<h3 class="docs-sidebar-title">Navegación</h3>
-					<nav>
-						<ul class="docs-sidebar-nav">
-							<li><a href="#introduccion" class="active">Introducción</a></li>
-							<li><a href="#instalacion">Instalación</a></li>
-							<li><a href="#uso-basico">Uso Básico</a></li>
-							<li><a href="#variables">Variables</a></li>
-							<li><a href="#mixins">Mixins</a></li>
-							<li><a href="#utilidades">Utilidades</a></li>
-							<li><a href="#componentes">Componentes</a></li>
-							<li><a href="#ejemplos">Ejemplos</a></li>
-							<li><a href="#personalizacion">Personalización</a></li>
-							<li><a href="#contribuir">Contribuir</a></li>
-						</ul>
-					</nav>
-				</aside>
+				</div>
 			</main>
 		</div>
 
 		<!-- Footer -->
 		<footer class="docs-footer">
-			<div class="docs-container">
+			<div class="docs-footer__handler p4-container p4-d-flex p4-flex-column p4-flex-center p4-items-stretch p4-pt-20 p4-pb-20 p4-text-center">
 				<p>
-					© 2025 <a href="https://github.com/bascoy">bascoy</a> - 
+					© {currentYear} <a href="https://github.com/bascoy">bascoy</a> - 
 					Pand4 Framework bajo licencia 
 					<a href="https://github.com/bascoy/pand4/blob/main/LICENSE">MIT</a>
 				</p>

@@ -1,0 +1,31 @@
+---
+export interface Props {
+  title?: string;
+  htmlCode?: string;
+  cssCode?: string;
+}
+
+const { 
+  title,
+  htmlCode,
+  cssCode
+} = Astro.props;
+
+import CodeBlock from './CodeBlock.astro';
+---
+
+<div class="docs-demo-block">
+  {title && <div class="docs-demo-block__label">{title}</div>}
+  
+  <div class="docs-demo-block__preview">
+    <slot />
+  </div>
+
+  {htmlCode && (
+    <CodeBlock language="html" code={htmlCode} />
+  )}
+
+  {cssCode && (
+    <CodeBlock language="css" code={cssCode} />
+  )}
+</div>
