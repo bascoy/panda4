@@ -1,6 +1,5 @@
-@forward 'abstract';
-@forward 'generic';
-@forward 'elements';
-@forward 'objects';
-@forward 'components';
-@forward 'utilities';
+@use 'index' with (
+  $modules: (
+    "generic/colors-dark": true,
+  )
+);

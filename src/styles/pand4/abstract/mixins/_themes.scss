@@ -1,0 +1,30 @@
+@mixin theme-generator($theme: light) {
+  @if($theme == light) {
+    .p4-theme-light,
+    [data-theme=light],
+    :root:not([data-theme]) {
+      @content;
+    }
+  }
+
+  @else if($theme == dark) {
+    @media (prefers-color-scheme: dark) {
+      .p4-theme-dark,
+      :root:not([data-theme]) {
+        @content;
+      }
+    }
+    
+    .p4-theme-dark,
+    [data-theme=dark] {
+      @content;
+    }
+  }
+
+  @else {
+    .p4-theme-#{$theme},
+    [data-theme=#{$theme}] {
+      @content;
+    }
+  }
+}

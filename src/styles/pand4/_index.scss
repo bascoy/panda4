@@ -1,0 +1,25 @@
+
+@forward 'settings';
+
+@use 'generic/root/colors-src' as *;
+@use 'generic/root/colors-light' as *;
+@use 'generic/root/colors-dark' as *;
+@use 'generic/root/focus' as *;
+@use 'generic/root/font-family' as *;
+@use 'generic/root/font-sizes' as *;
+@use 'generic/root/font-weight' as *;
+@use 'generic/root/layout' as *;
+@use 'generic/root/line' as *;
+@use 'generic/root/spacing' as *;
+@use 'generic/root/text-transform' as *;
+@use 'generic/root/transitions' as *;
+@use 'generic/root/typography' as *;
+@use 'generic/root/links' as *;
+@use 'generic/reset' as *;
+@use 'generic/focus' as *;
+@use 'generic/animations' as *;
+
+@use 'elements' as *;
+@use 'objects' as *;
+@use 'components' as *;
+@use 'utilities' as *;

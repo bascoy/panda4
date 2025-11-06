@@ -29,7 +29,9 @@
   --p4-color-src-secondary-950: 14, 42, 39;
 }
 
-:root {
+.p4-theme-light,
+[data-theme=light],
+:root:not([data-theme]) {
   --p4-color-danger-500: rgb(var(--p4-color-src-danger-500));
   --p4-color-warning-500: rgb(var(--p4-color-src-warning-500));
   --p4-color-success-500: rgb(var(--p4-color-src-success-500));
@@ -61,7 +63,8 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  .p4-theme-dark,
+  :root:not([data-theme]) {
     --p4-color-danger-500: rgb(var(--p4-color-src-danger-500));
     --p4-color-warning-500: rgb(var(--p4-color-src-warning-500));
     --p4-color-success-500: rgb(var(--p4-color-src-success-500));
@@ -92,6 +95,38 @@
     --p4-color-secondary-950: rgb(var(--p4-color-src-color-secondary-50));
   }
 }
+.p4-theme-dark,
+[data-theme=dark] {
+  --p4-color-danger-500: rgb(var(--p4-color-src-danger-500));
+  --p4-color-warning-500: rgb(var(--p4-color-src-warning-500));
+  --p4-color-success-500: rgb(var(--p4-color-src-success-500));
+  --p4-color-info-500: rgb(var(--p4-color-src-info-500));
+  --p4-color-notice-500: rgb(var(--p4-color-src-notice-500));
+  --p4-color-neutral-0: rgb(var(--p4-color-src-neutral-1000));
+  --p4-color-neutral-50: rgb(var(--p4-color-src-neutral-950));
+  --p4-color-neutral-200: rgb(var(--p4-color-src-neutral-800));
+  --p4-color-neutral-350: rgb(var(--p4-color-src-neutral-650));
+  --p4-color-neutral-500: rgb(var(--p4-color-src-neutral-500));
+  --p4-color-neutral-650: rgb(var(--p4-color-src-neutral-350));
+  --p4-color-neutral-800: rgb(var(--p4-color-src-neutral-200));
+  --p4-color-neutral-950: rgb(var(--p4-color-src-neutral-50));
+  --p4-color-neutral-1000: rgb(var(--p4-color-src-neutral-0));
+  --p4-color-primary-50: rgb(var(--p4-color-src-color-primary-950));
+  --p4-color-primary-200: rgb(var(--p4-color-src-color-primary-800));
+  --p4-color-primary-350: rgb(var(--p4-color-src-color-primary-650));
+  --p4-color-primary-500: rgb(var(--p4-color-src-color-primary-500));
+  --p4-color-primary-650: rgb(var(--p4-color-src-color-primary-350));
+  --p4-color-primary-800: rgb(var(--p4-color-src-color-primary-200));
+  --p4-color-primary-950: rgb(var(--p4-color-src-color-primary-50));
+  --p4-color-secondary-50: rgb(var(--p4-color-src-color-secondary-950));
+  --p4-color-secondary-200: rgb(var(--p4-color-src-color-secondary-800));
+  --p4-color-secondary-350: rgb(var(--p4-color-src-color-secondary-650));
+  --p4-color-secondary-500: rgb(var(--p4-color-src-color-secondary-500));
+  --p4-color-secondary-650: rgb(var(--p4-color-src-color-secondary-350));
+  --p4-color-secondary-800: rgb(var(--p4-color-src-color-secondary-200));
+  --p4-color-secondary-950: rgb(var(--p4-color-src-color-secondary-50));
+}
+
 :root {
   --p4-focus-ring: 0.125rem solid var(--p4-color-info-500);
   --p4-focus-ring-offset: 0.125rem;
@@ -201,34 +236,48 @@
   --p4-font-weight-base: var(--p4-font-weight-normal);
 }
 
-:root {
+.p4-theme-light,
+[data-theme=light],
+:root:not([data-theme]) {
   --p4-link-color: var(--p4-color-primary-650);
-  --p4-link-text-decoration-thickness: 0.0625rem;
-  --p4-link-text-decoration-line: underline;
-  --p4-link-text-underline-offset: 0.25rem;
-  --p4-link-transition-property: color, text-decoration-thickness, text-underline-offset;
-  --p4-link-hover-color--hover: var(--p4-color-primary-800);
-  --p4-link-hover-text-decoration-thickness--hover: 0.0625rem;
-  --p4-link-hover-text-decoration-line--hover: underline;
-  --p4-link-hover-text-underline-offset--hover: 0.25rem;
-  --p4-link-focus-color--focus: var(--p4-color-primary-800);
-  --p4-link-focus-text-decoration-thickness--focus: 0.0625rem;
-  --p4-link-focus-text-decoration-line--focus: underline;
-  --p4-link-focus-text-underline-offset--focus: 0.25rem;
-  --p4-link-active-color--active: var(--p4-color-primary-500);
-  --p4-link-active-text-decoration-thickness--active: 0.0625rem;
-  --p4-link-active-text-decoration-line--active: underline;
-  --p4-link-active-text-underline-offset--active: 0.25rem;
+  --p4-link-color--hover: var(--p4-color-primary-800);
+  --p4-link-color--focus: var(--p4-color-primary-800);
+  --p4-link-color--active: var(--p4-color-primary-500);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  .p4-theme-dark,
+  :root:not([data-theme]) {
     --p4-link-color: var(--p4-color-primary-350);
     --p4-link-color--hover: var(--p4-color-primary-200);
     --p4-link-color--focus: var(--p4-color-primary-200);
     --p4-link-color--active: var(--p4-color-primary-500);
   }
 }
+.p4-theme-dark,
+[data-theme=dark] {
+  --p4-link-color: var(--p4-color-primary-350);
+  --p4-link-color--hover: var(--p4-color-primary-200);
+  --p4-link-color--focus: var(--p4-color-primary-200);
+  --p4-link-color--active: var(--p4-color-primary-500);
+}
+
+:root {
+  --p4-link-text-decoration-thickness: 0.0625rem;
+  --p4-link-text-decoration-line: underline;
+  --p4-link-text-underline-offset: 0.25rem;
+  --p4-link-transition-property: color, text-decoration-thickness, text-underline-offset;
+  --p4-link-hover-text-decoration-thickness--hover: 0.0625rem;
+  --p4-link-hover-text-decoration-line--hover: underline;
+  --p4-link-hover-text-underline-offset--hover: 0.25rem;
+  --p4-link-focus-text-decoration-thickness--focus: 0.0625rem;
+  --p4-link-focus-text-decoration-line--focus: underline;
+  --p4-link-focus-text-underline-offset--focus: 0.25rem;
+  --p4-link-active-text-decoration-thickness--active: 0.0625rem;
+  --p4-link-active-text-decoration-line--active: underline;
+  --p4-link-active-text-underline-offset--active: 0.25rem;
+}
+
 /* Based on https://piccalil.li/blog/a-more-modern-css-reset/
 and https://www.joshwcomeau.com/css/custom-css-reset/ */
 html {
@@ -8644,3 +8693,5 @@ a:active {
 [dir=rtl] .p4-rtl-flip {
   transform: scaleX(-1);
 }
+
+/*# sourceMappingURL=pand4.css.map */
