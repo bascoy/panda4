@@ -1,0 +1,19 @@
+@use 'sass:map';
+@use '../settings' as settings;
+@use '../abstract' as *;
+
+@if map.get(settings.$p4-modules, "utilities/sr-only") {
+  .p4-sr-only:not(:focus, :active) {
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    
+    @include mq($min-screen: 768px) {
+      display: none;
+    }
+  }
+}

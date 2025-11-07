@@ -1,9 +1,0 @@
-@use 'sass:map';
-
-$modules: () !default;
-$modules: map.merge(
-  (
-    "generic/colors-dark": true,
-  ),
-  $modules
-);

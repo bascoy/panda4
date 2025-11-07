@@ -1,0 +1,44 @@
+@use 'sass:string';
+@use 'sass:map';
+@use '../../settings' as settings;
+
+// Genera selectores de temas con media queries automáticas para el tema oscuro
+@mixin theme-generator($theme: light, $auto-media: true) {
+  $theme-class: '.p4-theme-#{$theme}';
+  $theme-attr: '[data-theme=#{string.quote($theme)}]';
+  
+  @if $theme == light {
+    // Tema claro: siempre disponible como predeterminado
+    #{$theme-class},
+    #{$theme-attr},
+    :root:not([data-theme]) {
+      @content;
+    }
+  }
+  @else if $theme == dark {
+    // Tema oscuro: solo si el módulo está habilitado
+    @if map.get(settings.$p4-modules, "generic/colors-dark") {
+      @if $auto-media {
+        // Tema oscuro con media query automática
+        @media (prefers-color-scheme: dark) {
+          :root:not([data-theme]) {
+            @content;
+          }
+        }
+      }
+      
+      // Clases manuales del tema oscuro
+      #{$theme-class},
+      #{$theme-attr} {
+        @content;
+      }
+    }
+  }
+  @else {
+    // Temas personalizados: siempre disponibles
+    #{$theme-class},
+    #{$theme-attr} {
+      @content;
+    }
+  }
+}

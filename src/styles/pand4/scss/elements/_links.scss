@@ -1,0 +1,28 @@
+@use '../abstract' as *;
+
+a,
+.p4-link {
+  color: var(--p4-link-color);
+  cursor: pointer;
+  text-decoration-line: var(--p4-link-text-decoration-line);
+  text-decoration-thickness: var(--p4-link-text-decoration-thickness);
+  text-underline-offset: var(--p4-link-text-underline-offset);
+  transition-duration: var(--p4-transition-duration-fast);
+  transition-property: var(--p4-transition-property);
+  transition-timing-function: var(--p4-transition-timing-function);
+
+  &:hover {
+    color: var(--p4-link-color--hover);
+    text-decoration-line: var(--p4-link-text-decoration-line--hover);
+  }
+  
+  &:focus-visible {
+    color: var(--p4-link-color--focus);
+    text-decoration-line: var(--p4-link-text-decoration-line--focus);
+  }
+  
+  &:active {
+    color: var(--p4-link-color--active);
+    text-decoration-line: var(--p4-link-text-decoration-line--active);
+  }
+}

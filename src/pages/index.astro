@@ -12,37 +12,41 @@ yarn add pand4
 # PNPM
 pnpm add pand4`;
 
-const cssImportCode = `/* En tu archivo CSS */
-@import 'pand4/css';`;
+const cssImportCode = `/* En tu archivo CSS principal */
+@import 'pand4';`;
 
-const jsUsageCode = `// CSS completo
-import 'pand4/css';
+const jsUsageCode = `// Framework completo
+import 'pand4';
 
-// CSS minificado (producción)
-import 'pand4/min.css';`;
+// Versiones específicas
+import 'pand4/dist/pand4.css';           // Completo expandido
+import 'pand4/dist/pand4.min.css';       // Completo minificado
+import 'pand4/dist/pand4-nano.css';      // Versión nano
+import 'pand4/dist/pand4-utilities.css'; // Solo utilidades`;
 
-const htmlUsageCode = `<!-- CSS completo -->
-<link rel="stylesheet" href="node_modules/pand4/css">
+const htmlUsageCode = `<!-- Desde node_modules -->
+<link rel="stylesheet" href="node_modules/pand4/src/styles/pand4/dist/pand4.min.css">
 
-<!-- CSS minificado -->
-<link rel="stylesheet" href="node_modules/pand4/min.css">`;
+<!-- Desde CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pand4/src/styles/pand4/dist/pand4.min.css">`;
 
 const cssCustomizationCode = `/* ✅ Método recomendado: CSS Variables */
 :root {
-  --p4-primary-500: #3b82f6;
-  --p4-secondary-500: #64748b;
+  --p4-color-primary-500: #3b82f6;
+  --p4-color-secondary-500: #64748b;
   --p4-font-family-base: 'Inter', sans-serif;
-  --p4-font-size-base: 16px;
-  --p4-spacer-base: 8px;
+  --p4-text-size-base: 1rem;
+  --p4-spacer-base: 1rem;
 }`;
 
-const scssCustomizationCode = `/* ⚠️ Solo para casos específicos (breakpoints, containers) */
-@use 'pand4' as * with (
-  $breakpoint-sm: 640px,
-  $breakpoint-md: 768px,
-  $breakpoint-lg: 1024px,
-  $container-max-width: 1200px
-);`;
+const scssCustomizationCode = `/* ⚠️ Solo para configurar módulos personalizados */
+@use 'pand4/scss' as *;
+
+$p4-modules: (
+  'utilities/buttons': true,
+  'utilities/spacing': true,
+  'components/cards': false,
+) !default;`;
 
 const buttonExampleHtml = `<button class="p4-btn">
   Botón Principal
@@ -148,12 +152,40 @@ const npmBadges = {
 			<strong>Ventajas:</strong> No requiere recompilar SCSS, cambios en tiempo real, fácil mantenimiento, mejor rendimiento.
 		</div>
 
-		<h3>⚠️ Con SCSS (Solo casos específicos)</h3>
-		<p>Solo para configuración de breakpoints y contenedores. <strong>No recomendable</strong> para colores, tipografía o espaciado:</p>
+		<h3>⚠️ Con SCSS (Build personalizado)</h3>
+		<p>Para configurar qué módulos incluir en tu build personalizado:</p>
 		<CodeBlock language="scss" code={scssCustomizationCode} />
 		
 		<div class="docs-alert docs-alert--warning">
-			<strong>Nota:</strong> Este método requiere recompilar SCSS y solo debe usarse para configuración estructural del grid/layout.
+			<strong>Nota:</strong> Este método es para crear builds personalizados. Para personalizar colores, tipografía, etc., usa CSS Variables.
+		</div>
+	</section>
+
+	<section id="variantes" class="docs-section">
+		<h2>📦 Variantes Disponibles</h2>
+		<p>Pand4 ofrece tres variantes optimizadas para diferentes necesidades:</p>
+		
+		<div class="docs-variants">
+			<div class="docs-variant-card">
+				<h3>Completa</h3>
+				<code>import 'pand4'</code>
+				<p>Framework completo con todos los módulos: reset, variables, elementos, componentes y utilidades.</p>
+				<strong>Ideal para:</strong> Proyectos nuevos, prototipos rápidos.
+			</div>
+			
+			<div class="docs-variant-card">
+				<h3>Nano</h3>
+				<code>import 'pand4/dist/pand4-nano.css'</code>
+				<p>Versión minimalista con solo reset, variables CSS y estilos base de elementos.</p>
+				<strong>Ideal para:</strong> Base mínima + personalización total.
+			</div>
+			
+			<div class="docs-variant-card">
+				<h3>Utilities</h3>
+				<code>import 'pand4/dist/pand4-utilities.css'</code>
+				<p>Solo clases utilitarias CSS sin componentes ni estilos base.</p>
+				<strong>Ideal para:</strong> Complementar frameworks existentes.
+			</div>
 		</div>
 	</section>
 

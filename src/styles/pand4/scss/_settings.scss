@@ -1,0 +1,16 @@
+@use 'sass:map';
+
+$p4-modules: () !default;
+$p4-modules: map.merge(
+  (
+    "generic/colors-dark": false,
+    "elements/lang": false,
+    "objects/container": false,
+    "components/buttons": false,
+    "components/icons": false,
+    "utilities/sr-only": false,
+    "utilities/rtl": false,
+    "utilities/utilities": false,
+  ),
+  $p4-modules
+);

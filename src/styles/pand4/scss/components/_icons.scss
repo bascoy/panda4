@@ -1,0 +1,17 @@
+@use 'sass:map';
+@use '../settings' as settings;
+
+@if map.get(settings.$p4-modules, "components/icons") {
+  .p4-icon {
+    align-items: center;
+    display: inline-flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    
+    svg {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+  }
+}

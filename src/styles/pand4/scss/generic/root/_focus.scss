@@ -1,0 +1,15 @@
+@use '../../abstract/' as *;
+
+@include theme-generator(light) {
+  --p4-focus-ring-color: var(--p4-color-info-500);
+}
+
+@include theme-generator(dark) {
+  --p4-focus-ring-color: var(--p4-color-info-500);
+}
+
+:root {
+  --p4-focus-ring: #{to-rem(2)} solid var(--p4-focus-ring-color);
+  --p4-focus-ring-offset: #{to-rem(2)};
+  --p4-focus-ring-radius: 0;
+}

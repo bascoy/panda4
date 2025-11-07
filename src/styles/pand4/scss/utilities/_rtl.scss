@@ -1,0 +1,10 @@
+@use 'sass:map';
+@use '../settings' as settings;
+
+@if map.get(settings.$p4-modules, "utilities/rtl") {
+  [dir='rtl'] {
+    .p4-rtl-flip {
+      transform: scaleX(-1);
+    }
+  }
+}

@@ -7,6 +7,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.5] - 2025-11-07
+
+### Added
+- Three framework variants for different use cases:
+  - **Full** (`pand4.css`): Complete framework with all modules
+  - **Nano** (`pand4-nano.css`): Minimal version with only essentials (reset, CSS vars, base elements)
+  - **Utilities** (`pand4-utilities.css`): Only utility classes without components
+- Package exports for all CSS variants (expanded and minified versions)
+- Comprehensive documentation for variant usage and configuration
+- Visual variant cards in documentation site
+- Module configuration system via `$p4-modules` map for custom builds
+
+### Changed
+- **Breaking**: Updated package.json exports configuration to support multiple variants
+- Updated all documentation (README.md, USAGE.md, index.astro) with variant information
+- Enhanced documentation site with new variant comparison section
+- Improved SCSS customization examples focusing on modular builds
+- Updated import examples across all documentation
+
+### Fixed
+- Corrected all "panda" references to "pand4" throughout codebase
+- Fixed import paths in documentation to match actual package exports
+- Corrected package.json export paths for all variants
+- Fixed compilation scripts for nano and utilities variants
+
 ## [1.0.4] - 2025-11-04
 
 ### Fixed

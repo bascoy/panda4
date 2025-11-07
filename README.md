@@ -22,25 +22,31 @@ pnpm add pand4
 
 ## 📖 Uso Básico
 
-### En CSS (Recomendado para personalización)
+### En JavaScript/Bundlers (Recomendado)
 
-```css
-/* Importar el CSS compilado */
-@import 'pand4/css';
+```javascript
+// Framework completo (CSS compilado)
+import 'pand4';
 
-/* Personalizar variables CSS */
-:root {
-  --p4-color-primary-500: #3b82f6;
-  --p4-font-family-base: 'Inter', system-ui, sans-serif;
-  --p4-text-color-base: #1a1a1a;
-}
+// Versiones específicas
+import 'pand4/dist/pand4.css';           // Completo expandido
+import 'pand4/dist/pand4.min.css';       // Completo minificado
+import 'pand4/dist/pand4-nano.css';      // Versión nano (solo esenciales)
+import 'pand4/dist/pand4-utilities.css'; // Solo utilidades
 ```
 
 ### En SCSS (Para desarrollo avanzado)
 
 ```scss
-// Método moderno con @use
-@use 'pand4' as *;
+// Importar fuente SCSS para personalización
+@use 'pand4/scss' as *;
+
+// Configurar módulos específicos
+$p4-modules: (
+  'utilities/buttons': true,
+  'utilities/spacing': true,
+  'components/cards': false,
+);
 
 // Uso en tus componentes
 .mi-componente {
@@ -49,27 +55,49 @@ pnpm add pand4
 }
 ```
 
-### En JavaScript/Bundlers
-
-```javascript
-// CSS completo
-import 'pand4/css';
-
-// CSS minificado (producción)
-import 'pand4/min.css';
-```
-
 ### En HTML
 
 ```html
-<!-- CSS completo -->
-<link rel="stylesheet" href="node_modules/pand4/css">
+<!-- Desde node_modules -->
+<link rel="stylesheet" href="node_modules/pand4/src/styles/pand4/dist/pand4.min.css">
 
-<!-- CSS minificado -->
-<link rel="stylesheet" href="node_modules/pand4/min.css">
+<!-- Desde CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pand4/src/styles/pand4/dist/pand4.min.css">
+```
+
+### Personalizar Variables CSS
+
+```css
+/* Personalizar después de importar Pand4 */
+:root {
+  --p4-color-primary-500: #3b82f6;
+  --p4-font-family-base: 'Inter', system-ui, sans-serif;
+  --p4-text-color-base: #1a1a1a;
+}
 ```
 
 ## 🎨 Personalización
+
+### Variantes del Framework
+
+Pand4 ofrece **tres variantes** para diferentes necesidades:
+
+```javascript
+// 1. Versión completa (recomendada)
+import 'pand4';
+import 'pand4/dist/pand4.css';
+
+// 2. Versión nano (solo esenciales: reset, root vars, elementos base)
+import 'pand4/dist/pand4-nano.css';
+
+// 3. Solo utilidades CSS
+import 'pand4/dist/pand4-utilities.css';
+```
+
+**Comparativa de tamaños:**
+- `pand4.css` - Framework completo (~XX KB)
+- `pand4-nano.css` - Solo esenciales (~XX KB)
+- `pand4-utilities.css` - Solo utilidades (~XX KB)
 
 ### Personalización con CSS Variables (✅ Recomendado)
 
@@ -107,28 +135,32 @@ La forma **recomendada** de personalizar Pand4 es mediante CSS custom properties
 
 ### Personalización con SCSS (Casos específicos)
 
-Solo para casos donde necesites modificar **breakpoints** o **containers** antes de compilar:
+Para builds personalizados con módulos específicos:
 
 ```scss
-@use 'pand4' as * with (
-  // ⚠️ Solo estas variables se pueden configurar con SCSS
-  $p4-breakpoints: (
-    'sm': 640px,
-    'md': 768px,
-    'lg': 1024px,
-    'xl': 1280px,
-    '2xl': 1536px
-  ),
-  $p4-container-max-widths: (
-    'sm': 640px,
-    'md': 768px,
-    'lg': 1024px,
-    'xl': 1280px
-  )
-);
+// Importar y configurar módulos
+@use 'pand4/scss' as *;
+
+// Configurar qué módulos incluir
+$p4-modules: (
+  // Esenciales (siempre recomendados)
+  'generic/root': true,
+  'generic/reset': true,
+  
+  // Componentes específicos
+  'components/buttons': true,
+  'components/forms': false,
+  
+  // Utilidades específicas
+  'utilities/spacing': true,
+  'utilities/display': true,
+  'utilities/typography': false,
+) !default;
+
+// El framework solo incluirá los módulos configurados
 ```
 
-**⚠️ Importante:** La mayoría de variables (colores, tipografía, espaciado, etc.) NO se deben personalizar con SCSS. Usa CSS variables en su lugar.
+**⚠️ Importante:** Para personalizar colores, tipografía, espaciado, etc., usa CSS variables. Solo usa SCSS para configurar qué módulos incluir en tu build.
 
 ## 📁 Estructura del Framework
 

@@ -1,0 +1,53 @@
+@use 'sass:map';
+
+@use '../settings' as settings;
+
+@if map.get(settings.$p4-modules, 'elements/lang') {
+  // aleman
+  [lang^="de"],
+  // chino
+  [lang^="zh"],
+  // euskera
+  [lang^="eu"],
+  // griego
+  [lang^="el"],
+  // turco
+  [lang^="tr"],
+  // ruso
+  [lang^="ru"],
+  // serbio
+  [lang^="sr"],
+  // ukraniano
+  [lang^="uk"],
+  // bulgaro
+  [lang^="bg"],
+  // arab emirates, egipto ,jordania, israel ,qatar , bahrain ,arabia saudi
+  [lang^="ar"],
+  // holandés
+  [lang^="nl"] {
+    --p4-text-uppercase: none !important;
+  }
+
+  // chino
+  [lang^="zh"],
+  // coreano
+  [lang^="ko"],
+  // vietnamita
+  [lang^="vi"],
+  // griego
+  [lang^="el"],
+  // turco
+  [lang^="tr"],
+  // ruso
+  [lang^="ru"],
+  // serbio
+  [lang^="sr"],
+  // ukraniano
+  [lang^="uk"],
+  // bulgaro
+  [lang^="bg"],
+  // arab emirates, egipto ,jordania, israel ,qatar , bahrain ,arabia saudi
+  [lang^="ar"] { 
+    --p4-font-family-base: var(--p4-font-family-fallback) !important;
+  }
+}

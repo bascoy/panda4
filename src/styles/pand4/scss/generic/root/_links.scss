@@ -1,0 +1,27 @@
+@use '../../abstract' as *;
+
+@include theme-generator(light) {
+  --p4-link-color: var(--p4-color-primary-650);
+  --p4-link-color--hover: var(--p4-color-primary-800);
+  --p4-link-color--focus: var(--p4-color-primary-800);
+  --p4-link-color--active: var(--p4-color-primary-500);
+}
+
+@include theme-generator(dark) {
+  --p4-link-color: var(--p4-color-primary-350);
+  --p4-link-color--hover: var(--p4-color-primary-200);
+  --p4-link-color--focus: var(--p4-color-primary-200);
+  --p4-link-color--active: var(--p4-color-primary-500);
+}
+
+:root {
+  --p4-link-text-decoration-thickness: #{to-rem(1)};
+  --p4-link-text-decoration-line: underline;
+  --p4-link-text-underline-offset: #{to-rem(4)};
+  
+  --p4-link-hover-text-decoration-line--hover: underline;
+  
+  --p4-link-focus-text-decoration-line--focus: underline;
+
+  --p4-link-active-text-decoration-line--active: underline;
+}

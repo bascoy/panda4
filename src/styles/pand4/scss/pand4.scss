@@ -1,0 +1,12 @@
+@use 'index' with (
+  $p4-modules: (
+    "generic/colors-dark": true,
+    "elements/lang": true,
+    "objects/container": true,
+    "components/buttons": true,
+    "components/icons": true,
+    "utilities/sr-only": true,
+    "utilities/rtl": true,
+    "utilities/utilities": true,
+  )
+);

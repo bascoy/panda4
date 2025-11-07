@@ -1,0 +1,25 @@
+@use 'sass:map';
+@use 'sass:meta';
+
+@use '../settings' as settings;
+@use '../abstract' as *;
+
+@if map.get(settings.$p4-modules, "utilities/utilities") {
+  // Generar utilidades base (sin breakpoint)
+  @each $key, $utility in $p4-utilities {
+    @if meta.type-of($utility) == 'map' {
+      @include generate-utility($utility);
+    }
+  }
+
+  // Generar utilidades responsive para cada breakpoint
+  @each $breakpoint, $breakpoint-value in $p4-breakpoint-utilities {
+    @include mq($min-screen: $breakpoint-value) {
+      @each $key, $utility in $p4-utilities {
+        @if meta.type-of($utility) == 'map' and map.get($utility, responsive) {
+          @include generate-utility($utility, $breakpoint);
+        }
+      }
+    }
+  }
+}

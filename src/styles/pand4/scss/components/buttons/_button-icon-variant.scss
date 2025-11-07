@@ -1,0 +1,10 @@
+@use 'sass:map';
+@use '../../settings' as settings;
+@use '../../abstract' as *;
+
+@if map.get(settings.$p4-modules, "components/buttons") {
+  .p4-btn.p4-btn--icon {
+    aspect-ratio: 1;
+    padding-inline: 0;
+  }
+}

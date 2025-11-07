@@ -1,0 +1,11 @@
+@use '../../abstract/' as *;
+
+:root {
+  // Tamaño S
+  --p4-font-size-s: #{to-rem(14)};
+  --p4-line-height-s: 1.6;
+
+  // Tamaño M
+  --p4-font-size-m: #{to-rem(16)};
+  --p4-line-height-m: 1.5;
+}

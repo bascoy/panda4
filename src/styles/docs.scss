@@ -5,15 +5,15 @@
 // Solo se usa para la demo/documentación en https://pand4.vercel.app
 
 // Importar el framework Pand4 completo
-@use './pand4/pand4' as *;
-@use './pand4/abstract/index' as *;
+@use './pand4/scss/pand4' as *;
+@use './pand4/scss/abstract' as *;
 
 // ====================================
 // VARIABLES
 // ====================================
 
 :root {
-  // Pand4 variables overrides
+  // Anulaciones de variables Pand4
   --p4-font-family-secondary: Impact, 'Arial Black', 'Franklin Gothic Bold', sans-serif;
   --p4-text-color-base: var(--p4-color-neutral-950);
   --p4-text-color-base-inverse: var(--p4-color-neutral-50);
@@ -115,7 +115,7 @@ body {
       text-transform: uppercase;
     }
     
-    // Open state
+    // Estado abierto
     &.is-open {
       &::before {
         animation: p4-fade-in var(--p4-transition-duration) var(--p4-transition-timing-function) forwards;
@@ -593,7 +593,70 @@ body {
   }
 }
 
+// ====================================
+// VARIANTES
+// ====================================
 
+.docs-variants {
+  display: grid;
+  gap: var(--p4-spacer-24);
+  grid-template-columns: 1fr;
+  margin-block: var(--p4-spacer-32);
+
+  @include mq($min-screen: $p4-breakpoint-md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.docs-variant-card {
+  background-color: var(--p4-color-neutral-0);
+  border: solid var(--p4-line-width) var(--p4-color-primary-300);
+  border-radius: var(--p4-border-radius-base);
+  padding: var(--p4-spacer-24);
+  transition: all var(--p4-transition-duration) var(--p4-transition-timing-function);
+
+  &:hover {
+    border-color: var(--p4-color-primary-500);
+    box-shadow: 0 var(--p4-spacer-4) var(--p4-spacer-12) rgba(0, 0, 0, 0.1);
+    transform: translateY(calc(var(--p4-spacer-4) * -1));
+  }
+
+  h3 {
+    color: var(--p4-color-primary-700);
+    font-size: var(--p4-text-size-xl);
+    font-weight: var(--p4-font-weight-bold);
+    margin-block: 0 var(--p4-spacer-12);
+  }
+
+  code {
+    background-color: var(--p4-color-primary-50);
+    border-radius: var(--p4-border-radius-sm);
+    color: var(--p4-color-primary-800);
+    display: block;
+    font-size: var(--p4-text-size-sm);
+    margin-block: var(--p4-spacer-12);
+    padding: var(--p4-spacer-8) var(--p4-spacer-12);
+  }
+
+  p {
+    color: var(--p4-color-neutral-700);
+    font-size: var(--p4-text-size-base);
+    line-height: var(--p4-line-height-relaxed);
+    margin-block: var(--p4-spacer-12);
+  }
+
+  strong {
+    color: var(--p4-color-neutral-900);
+    display: block;
+    font-size: var(--p4-text-size-sm);
+    font-weight: var(--p4-font-weight-semibold);
+    margin-block-start: var(--p4-spacer-16);
+  }
+}
+
+// ====================================
+// LOCKED BODY
+// ====================================
 
 body.is-locked {
   overflow: hidden;
