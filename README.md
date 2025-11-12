@@ -95,6 +95,9 @@ import 'pand4/dist/pand4-utilities.css';
 
 // 4. Tema oscuro (dark theme colors)
 import 'pand4/dist/pand4-dark-theme.css';
+
+// 5. Atomic CSS (variables + utilidades, ideal para tree-shaking con PurgeCSS)
+import 'pand4/dist/pand4-atomic.css';
 ```
 
 **Comparativa de tamaños:**
@@ -102,6 +105,29 @@ import 'pand4/dist/pand4-dark-theme.css';
 - `pand4-nano.css` - Solo esenciales (8.5 KB / 7.6 KB min)
 - `pand4-utilities.css` - Solo utilidades (153 KB / 123 KB min)
 - `pand4-dark-theme.css` - Tema oscuro (13 KB / 12 KB min)
+- `pand4-atomic.css` - Atomic CSS (6.4 KB / 5.9 KB min) ⚡ **Tree-shakeable**
+
+### 🌳 Atomic CSS + PurgeCSS (Máximo Tree-Shaking)
+
+La versión **atomic** está diseñada para tree-shaking máximo con PurgeCSS:
+
+```javascript
+// 1. Importar versión atomic
+import 'pand4/dist/pand4-atomic.css';
+
+// 2. Configurar PurgeCSS en tu bundler (Vite, Webpack, etc.)
+// postcss.config.js
+export default {
+  plugins: [
+    require('@fullhuman/postcss-purgecss')({
+      content: ['./src/**/*.{html,js,jsx,ts,tsx,vue}'],
+      safelist: [/^p4-/, /^--p4-/],
+    }),
+  ],
+};
+```
+
+**Resultado**: Solo las clases que realmente uses terminarán en tu bundle final (normalmente < 2 KB).
 
 ### Uso del Dark Theme
 
