@@ -1,0 +1,5 @@
+@use 'index' with (
+  $p4-modules: (
+    "generic/colors-dark": true,
+  )
+);

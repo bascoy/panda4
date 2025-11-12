@@ -92,12 +92,32 @@ import 'pand4/dist/pand4-nano.css';
 
 // 3. Solo utilidades CSS
 import 'pand4/dist/pand4-utilities.css';
+
+// 4. Tema oscuro (dark theme colors)
+import 'pand4/dist/pand4-dark-theme.css';
 ```
 
 **Comparativa de tamaños:**
-- `pand4.css` - Framework completo (~XX KB)
-- `pand4-nano.css` - Solo esenciales (~XX KB)
-- `pand4-utilities.css` - Solo utilidades (~XX KB)
+- `pand4.css` - Framework completo (165 KB / 134 KB min)
+- `pand4-nano.css` - Solo esenciales (8.5 KB / 7.6 KB min)
+- `pand4-utilities.css` - Solo utilidades (153 KB / 123 KB min)
+- `pand4-dark-theme.css` - Tema oscuro (13 KB / 12 KB min)
+
+### Uso del Dark Theme
+
+El tema oscuro solo incluye las variables CSS de colores dark. Impórtalo después del framework base:
+
+```javascript
+// En tu aplicación
+import 'pand4/dist/pand4.css';           // Base framework
+import 'pand4/dist/pand4-dark-theme.css'; // Dark theme colors
+```
+
+```html
+<!-- O en HTML -->
+<link rel="stylesheet" href="node_modules/pand4/dist/pand4.min.css">
+<link rel="stylesheet" href="node_modules/pand4/dist/pand4-dark-theme.min.css">
+```
 
 ### Personalización con CSS Variables (✅ Recomendado)
 
